@@ -22,11 +22,11 @@
 
 - 💬 Ask me about: **"Coffee, Snowboarding, or C4 energy drinks"**
 
-- 📫 How to reach me: **email@email.com**
-
 - 📄 Know about my experiences: [Portfolio](Portfolio)
 
 - ⚡ Fun fact: **All dogs go to Heaven.**
+  
+- 📫 How to reach me: **email@email.com**
 <br>
 <hr>
 <hr>
