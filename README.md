@@ -32,11 +32,11 @@
 <hr>
 <!--===== MY STATS =========================-->
 <h3 align="center">My Stats:</h3>
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=t3rminal-cmd&show_icons=true&locale=en&layout=compact" alt="t3rminal-cmd" /></p>
-
+<div align="center">
+<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=t3rminal-cmd&show_icons=true&locale=en&layout=compact" alt="t3rminal-cmd" /></p>
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=t3rminal-cmd&show_icons=true&locale=en" alt="t3rminal-cmd" /></p>
-
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=t3rminal-cmd&" alt="t3rminal-cmd" /></p>
+ </div>
 <hr>
 <!--===== SNAKE CONTRIBUTION ===============-->
 <h3 align="center">Snake Contribution:</h3>
