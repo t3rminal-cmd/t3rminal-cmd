@@ -13,7 +13,9 @@
 <hr>
 <hr>
 <!--===== RIGHT GIF ========================-->
-<img align="right" src="https://user-images.githubusercontent.com/74038190/212749171-b84692a8-2b04-4e3b-93ca-ac14705da224.gif" alt="coding gif" height="245" width="400"  />
+<div style="padding: 30px 20px 0px 0px;">
+<img align="right" src="https://user-images.githubusercontent.com/74038190/212749171-b84692a8-2b04-4e3b-93ca-ac14705da224.gif" alt="coding gif" height="245" width="350"  />
+</div>
 <!--===== LEFT CONTENT =====================-->
  
 - 🔭 I’m currently working on: **A Responsive Portfolio**
