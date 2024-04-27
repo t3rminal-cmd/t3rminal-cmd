@@ -42,7 +42,7 @@
 <hr>
 <!--===== SNAKE CONTRIBUTION ===============-->
 <h3 align="center">Snake Contribution:</h3>
-<p align="center"><image src="https://github.com/t3rminal-cmd/t3rminal-cmd/blob/output/github-contribution-grid-snake.gif" alt="snake eating contribution" width="50%"  /></p>
+<p align="center"><image src="https://github.com/t3rminal-cmd/t3rminal-cmd/blob/output/github-contribution-grid-snake.gif" alt="snake eating contribution" width="50%" /></p>
 <hr>
 <!--===== LANGUAGE SKILLS & TOOLS ==========-->
 <h3 align="center">Language, Skills, & Tools:</h3>
