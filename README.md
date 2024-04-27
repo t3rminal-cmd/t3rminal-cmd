@@ -18,17 +18,17 @@
 </div>
 <!--===== LEFT CONTENT =====================-->
  
-- 🔭 I’m currently working on: **A Responsive Portfolio**
+ 🔭 I’m currently working on: **A Responsive Portfolio**
 
-- 🌱 I’m currently learning: **HTML, CSS, JavaScript, Python**
+ 🌱 I’m currently learning: **HTML, CSS, JavaScript, Python**
 
-- 💬 Ask me about: **Coffee, Snowboarding, or C4 energy drinks**
+ 💬 Ask me about: **Coffee, Snowboarding, or C4 energy drinks**
 
-- 📄 Know about my experiences: [Portfolio](Portfolio)
+ 📄 Know about my experiences: [Portfolio](Portfolio)
 
-- ⚡ Fun fact: **All dogs go to Heaven.**
+ ⚡ Fun fact: **All dogs go to Heaven.**
   
-- 📫 How to reach me: **email@email.com**
+ 📫 How to reach me: **email@email.com**
 <br>
 <hr>
 <hr>
