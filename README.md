@@ -10,9 +10,11 @@
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=JetBrains+mono&weight=500&size=22&duration=3000&pause=500&color=1BC830&center=true&vCenter=true&random=false&width=435&lines=Hello%2C+World!+%F0%9F%91%8B%F0%9F%8F%BD;I'm+t3Rminal-cmd..." alt="Typing SVG" /></a></div>
 <hr>
 
-<h3 align="center">An amateur web designer & developer.</h3>
+<h2 align="center">An amateur web designer & developer.</h2>
+<h3 align="center">Photographer, Veteran, Papa bear 🐻</h3>
+<hr>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=t3rminal-cmd&label=Profile%20views&color=0e75b6&style=flat" alt="t3rminal-cmd" /> </p>
+ 
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=t3rminal-cmd" alt="t3rminal-cmd" /></a> </p>
 
