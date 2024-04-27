@@ -42,14 +42,12 @@
 <h3 align="center">Snake Contribution:</h3>
 <p align="center"><image src="https://github.com/t3rminal-cmd/t3rminal-cmd/blob/output/github-contribution-grid-snake.gif" alt="snake eating contribution" width="50%"  /></p>
 <hr>
-<!--===== LANGUAGE & SKILLS ================-->
-<h3 align="center">Language & Skills:</h3>
+<!--===== LANGUAGE SKILLS & TOOLS ==========-->
+<h3 align="center">Language, Skills, & Tools:</h3>
 <p align="center">
-
-<img width="50px" src="https://github.com/Pedro-Murilo/icons-for-readme/blob/main/.github/css-icon.svg" alt="CSS Icon" />
-<img width="50px" src="https://github.com/Pedro-Murilo/icons-for-readme/blob/main/.github/js-icon.svg" alt="Javascript Icon" />
-
-<img width="50px" src="https://github.com/Pedro-Murilo/icons-for-readme/blob/main/.github/vscode-icon.svg" alt="VSCode Icon" />
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=html,css,js,py,powershell,vscode,github" />
+  </a>
 </p>
 <hr>
 <!--===== SOCIAL ICON ======================-->
