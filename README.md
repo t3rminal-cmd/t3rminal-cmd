@@ -40,7 +40,7 @@
 <hr>
 <!--===== SNAKE CONTRIBUTION ===============-->
 <h3 align="center">Snake Contribution:</h3>
-
+<p align="center"><image alt="snake eating contribution" width="50%" src="https://github.com/t3rminal-cmd/t3rminal-cmd/blob/output/github-contribution-grid-snake.gif" /></p>
 <hr>
 <!--===== SOCIAL ICON ======================-->
 <h3 align="center">Connect with me:</h3>
