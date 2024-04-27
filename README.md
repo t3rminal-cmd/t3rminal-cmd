@@ -1,4 +1,15 @@
-<h1 align="center">Hello, I'm t3Rminal-cmd</h1>
+<hr>
+<!--===== BANNER ===========================-->
+<img src="https://img.freepik.com/premium-vector/programming-code-coding-hacker-sign-programming-code-icon-made-with-binary-code-wireframe-hand-digital-binary-data-digital-code-matrix-background-with-digits-10-vector-illustration_127544-2736.jpg?w=996" width="100%" />
+<hr>
+
+<!--===== VISITOR COUNTER ==================-->
+<p align="right"><img src="https://komarev.com/ghpvc/?username=t3rminal-cmd&label=Profile%20views&color=0e75b6&style=flat" alt="t3rminal-cmd" /></p>
+<!--===== TYPING SVG =======================-->
+<div align="center">
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=JetBrains+mono&weight=500&size=22&duration=3000&pause=500&color=1BC830&center=true&vCenter=true&random=false&width=435&lines=Hello%2C+World!+%F0%9F%91%8B%F0%9F%8F%BD;I'm+t3Rminal-cmd..." alt="Typing SVG" /></a></div>
+<hr>
+
 <h3 align="center">An amateur web designer & developer.</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=t3rminal-cmd&label=Profile%20views&color=0e75b6&style=flat" alt="t3rminal-cmd" /> </p>
