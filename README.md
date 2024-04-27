@@ -1,10 +1,9 @@
-<hr>
 <!--===== BANNER ===========================-->
 <img src="https://img.freepik.com/premium-vector/programming-code-coding-hacker-sign-programming-code-icon-made-with-binary-code-wireframe-hand-digital-binary-data-digital-code-matrix-background-with-digits-10-vector-illustration_127544-2736.jpg?w=996" width="100%" />
 <hr>
 
 <!--===== VISITOR COUNTER ==================-->
-<p align="right"><img src="https://komarev.com/ghpvc/?username=t3rminal-cmd&label=Profile%20views&color=0e75b6&style=flat" alt="t3rminal-cmd" /></p>
+<div align="right"><img src="https://komarev.com/ghpvc/?username=t3rminal-cmd&label=Profile%20views&color=0e75b6&style=flat" alt="t3rminal-cmd" /></div>
 <!--===== TYPING SVG =======================-->
 <div align="center">
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=JetBrains+mono&weight=500&size=22&duration=3000&pause=500&color=1BC830&center=true&vCenter=true&random=false&width=435&lines=Hello%2C+World!+%F0%9F%91%8B%F0%9F%8F%BD;I'm+t3Rminal-cmd..." alt="Typing SVG" /></a></div>
@@ -14,11 +13,12 @@
 <h3 align="center">Photographer, Veteran, Papa bear 🐻</h3>
 <hr>
 
+<!--===== LEFT CONTENT =====================-->
+<p><img aligh="right width="400" src="https://user-images.githubusercontent.com/74038190/212749171-b84692a8-2b04-4e3b-93ca-ac14705da224.gif"></p>
+<!--===== RIGHT GIF ========================-->
+<p align="left">
  
-
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=t3rminal-cmd" alt="t3rminal-cmd" /></a> </p>
-
-- 🔭 I’m currently working on **"Project name"**
+- 🔭 I’m currently working on **A Responsive Portfolio**
 
 - 🌱 I’m currently learning **HTML, CSS, JavaScript, Python**
 
@@ -29,6 +29,8 @@
 - 📄 Know about my experiences [Portfolio](Portfolio)
 
 - ⚡ Fun fact **All dogs go to Heaven.**
+</p>
+<hr>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
