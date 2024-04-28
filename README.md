@@ -57,10 +57,7 @@
 <p align="center"><image src="https://github.com/t3rminal-cmd/t3rminal-cmd/blob/output/github-contribution-grid-snake.gif" alt="snake eating contribution" width="100%" /></p>
 <hr>
 <!--===== LANGUAGE SKILLS & TOOLS ==========-->
-<h3 align="left">Language | Skills | Tools:</h3>
-<p align="center">
- <img height="48" src="" alt="profile" /></a>
-</p>
+
 <hr>
 <!--===== SOCIAL ICON ======================-->
 <h3 align="left">Connect with me:</h3>
