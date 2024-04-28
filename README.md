@@ -9,7 +9,7 @@
 <!--===== HEADER ===========================-->
 <h2 align="center">An amateur web designer & developer.</h2>
 <!--===== SUB HEADER =======================-->
-<h4 align="center">Photographer, Veteran, Papa bear 🐻</h4>
+<h4 align="center">Photographer & Veteran</h4>
 <hr>
 <hr>
 <!--===== RIGHT GIF ========================-->
