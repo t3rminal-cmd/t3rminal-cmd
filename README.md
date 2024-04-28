@@ -68,7 +68,7 @@
  <a href="https://www.instagram.com/">
   <img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f5560108-e139-44b5-8a2c-61f107f10256" alt="instagram" target="_blank" />
  </a>
- <a href="https://www.linkedin/.com">
+ <a href="https://www.linkedin.com/">
   <img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/47e2fe02-0177-408c-bdca-65f56f5cc822" alt="linkedin" target="_blank" />
  </a>
  <a href="https://www.github.com/t3rminal-cmd/">
