@@ -1,8 +1,10 @@
 <!--===== BANNER ===========================-->
 <img src="https://user-images.githubusercontent.com/74038190/213910845-af37a709-8995-40d6-be59-724526e3c3d7.gif" alt="java is boss banner" height="auto" width="100%" />
 <!--===== VISITOR COUNTER ==================-->
+<br>
 <div align="right"><img src="https://komarev.com/ghpvc/?username=t3rminal-cmd&label=Profile%20views&color=0e75b6&style=flat" alt="t3rminal-cmd" /></div>
 <!--===== TYPING SVG =======================-->
+<br>
 <div align="center">
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=JetBrains+mono&weight=600&size=35&duration=3000&pause=500&color=1BC830&center=true&vCenter=true&random=false&width=435&lines=Hello%2C+World!+%F0%9F%91%8B%F0%9F%8F%BD;I'm+t3Rminal-cmd..." alt="Typing SVG" /></a></div>
 <hr>
