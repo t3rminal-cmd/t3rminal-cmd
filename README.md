@@ -26,7 +26,7 @@
 
  📄 Know about my experiences: [Portfolio](Portfolio)
 
- ⚡ Fun fact: **All dogs go to Heaven.**
+ ⚡ Fun fact: **All dogs go to Heaven**
   
  📫 How to reach me: **email@email.com**
 <br>
