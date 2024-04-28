@@ -58,7 +58,7 @@
 <hr>
 <!--===== LANGUAGE SKILLS & TOOLS ==========-->
 
-<hr>
+
 <!--===== SOCIAL ICON ======================-->
 <h3 align="left">Connect with me:</h3>
 <p align="center">
