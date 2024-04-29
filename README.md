@@ -1,22 +1,28 @@
 <!--===== BANNER ===========================-->
-<img src="https://moodle.acs.gr/pluginfile.php/725517/course/overviewfiles/coding.gif" alt="java is boss banner" height="auto" height="10%" width="100%" />
+<img src="https://moodle.acs.gr/pluginfile.php/725517/course/overviewfiles/coding.gif" alt="binary banner" width="100%" />
+
 <!--===== VISITOR COUNTER ==================-->
 <div align="right"><img src="https://komarev.com/ghpvc/?username=t3rminal-cmd&label=Profile%20views&color=0e75b6&style=flat" alt="t3rminal-cmd" /></div>
+
 <!--===== TYPING SVG =======================-->
 <br>
 <div align="center">
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=JetBrains+mono&weight=600&size=30&duration=3000&pause=500&color=1BC830&center=true&vCenter=true&random=false&width=435&lines=Hello%2C+World!+%F0%9F%91%8B%F0%9F%8F%BD;I'm+t3Rminal-cmd..." alt="Typing SVG" /></a></div>
 <hr>
+
 <!--===== HEADER ===========================-->
 <h2 align="center">An amateur web designer & developer.</h2>
+
 <!--===== SUB HEADER =======================-->
 <h4 align="center">Veteran | Runner | Foodie</h4>
 <hr>
 <hr>
+
 <!--===== RIGHT GIF ========================-->
 <div style="padding: 30px 20px 0px 0px;">
 <img align="right" src="https://user-images.githubusercontent.com/74038190/212749171-b84692a8-2b04-4e3b-93ca-ac14705da224.gif" alt="coding gif" height="245" width="350"  />
 </div>
+
 <!--===== LEFT CONTENT =====================-->
  
  🔭 I’m currently working on: **A Responsive Portfolio**
@@ -44,6 +50,7 @@
 </p>
 <hr>
 <hr>
+
 <!--===== MY STATS =========================-->
 <h3 align="left">My Stats:</h3>
 <div align="center">
@@ -52,12 +59,13 @@
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=t3rminal-cmd&" alt="t3rminal-cmd" /></p>
  </div>
 <hr>
+
 <!--===== SNAKE CONTRIBUTION ===============-->
 <h3 align="left">Snake Contribution:</h3>
 <p align="center"><image src="https://github.com/t3rminal-cmd/t3rminal-cmd/blob/output/github-contribution-grid-snake.gif" alt="snake eating contribution" width="100%" /></p>
 <hr>
-<!--===== LANGUAGE SKILLS & TOOLS ==========-->
 
+<!--===== LANGUAGE SKILLS & TOOLS ==========-->
 
 <!--===== SOCIAL ICON ======================-->
 <h3 align="left">Connect with me:</h3>
@@ -77,8 +85,16 @@
 </p>
 <hr>
 
+
+
+
 <!--===== ICON SITE ========================-->
-<!--===== https://www.iconfinder.com/iconsets/colorful-guache-social-media-logos-1 =====-->
+<!--===== https://www.iconfinder.com/iconsets/c
+olorful-guache-social-media-logos-1 ========-->
+
 <!--===== BANNER GIF OPTIONS ===============-->
-<!--===== https://moodle.acs.gr/pluginfile.php/725517/course/overviewfiles/coding.gif ===============================-->
-<!--===== https://user-images.githubusercontent.com/74038190/213910845-af37a709-8995-40d6-be59-724526e3c3d7.gif =====-->
+<!--===== https://moodle.acs.gr/pluginfile.php/
+725517/course/overviewfiles/coding.gif =====--> <!--===== alt="java is boss banner" =====-->
+<!--===== https://user-images.githubusercontent
+.com/74038190/213910845-af37a709-8995-40d6-be59
+-724526e3c3d7.gif ==========================--> <!--===== alt="binary banner" ===========-->
