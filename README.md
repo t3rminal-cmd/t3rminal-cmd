@@ -1,5 +1,5 @@
 <!--===== BANNER ===========================-->
-<img src="https://user-images.githubusercontent.com/74038190/213910845-af37a709-8995-40d6-be59-724526e3c3d7.gif" alt="java is boss banner" height="auto" width="100%" />
+<img src="https://moodle.acs.gr/pluginfile.php/725517/course/overviewfiles/coding.gif" alt="java is boss banner" height="auto" height="10%" width="100%" />
 <!--===== VISITOR COUNTER ==================-->
 <div align="right"><img src="https://komarev.com/ghpvc/?username=t3rminal-cmd&label=Profile%20views&color=0e75b6&style=flat" alt="t3rminal-cmd" /></div>
 <!--===== TYPING SVG =======================-->
@@ -79,3 +79,6 @@
 
 <!--===== ICON SITE ========================-->
 <!--===== https://www.iconfinder.com/iconsets/colorful-guache-social-media-logos-1 =====-->
+<!--===== BANNER GIF OPTIONS ===============-->
+<!--===== https://moodle.acs.gr/pluginfile.php/725517/course/overviewfiles/coding.gif ===============================-->
+<!--===== https://user-images.githubusercontent.com/74038190/213910845-af37a709-8995-40d6-be59-724526e3c3d7.gif =====-->
