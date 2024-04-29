@@ -38,7 +38,7 @@
  📫 How to reach me: **via email**
 <br>
 <p align="center">
-<a href="mailto:s3curetangodown@proton.me">
+<a href="mailto:S3cureTangoDown@proton.me">
 <img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/8cc66993-8053-4cf6-a45d-e614773436ac" alt="proton_mail" target="_blank" />
 </a>
 <a href="https://www.youtube.com/">
