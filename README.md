@@ -38,15 +38,15 @@
  📫 How to reach me: **via email**
 <br>
 <p align="center">
- <a href="mailto:s3curetangodown@proton.me">
-  <img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/8cc66993-8053-4cf6-a45d-e614773436ac" alt="proton_mail" target="_blank" />
- </a>
- <a href="https://www.youtube.com/">
-  <img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/853bdab3-4101-4148-aec1-d8b82588d1a0" alt="youtube" target="_blank" />
- </a>
- <a href="https://netlify.app/">
-  <img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/54c3c87c-32fd-42d9-9334-539bb45c23f3" alt="profile" target="_blank" />
- </a>
+<a href="mailto:s3curetangodown@proton.me">
+<img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/8cc66993-8053-4cf6-a45d-e614773436ac" alt="proton_mail" target="_blank" />
+</a>
+<a href="https://www.youtube.com/">
+<img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/853bdab3-4101-4148-aec1-d8b82588d1a0" alt="youtube" target="_blank" />
+</a>
+<a href="https://netlify.app/">
+<img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/54c3c87c-32fd-42d9-9334-539bb45c23f3" alt="profile" target="_blank" />
+</a>
 </p>
 <hr>
 <hr>
@@ -70,18 +70,18 @@
 <!--===== SOCIAL ICON ======================-->
 <h3 align="left">Connect with me:</h3>
 <p align="center">
- <a href="https://netlify.app/">
-  <img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f48bb5f2-4fcf-4089-bf99-ffdbc59a91ed" alt="profile" target="_blank" />
- </a>
- <a href="https://www.instagram.com/">
-  <img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f5560108-e139-44b5-8a2c-61f107f10256" alt="instagram" target="_blank" />
- </a>
- <a href="https://www.linkedin.com/">
-  <img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/47e2fe02-0177-408c-bdca-65f56f5cc822" alt="linkedin" target="_blank" />
- </a>
- <a href="https://www.github.com/t3rminal-cmd/">
-  <img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/d8335906-9067-4efd-a0bc-45d9e4d1eae4" alt="github" target="_blank" />
- </a>
+<a href="https://netlify.app/">
+<img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f48bb5f2-4fcf-4089-bf99-ffdbc59a91ed" alt="profile" target="_blank" />
+</a>
+<a href="https://www.instagram.com/">
+<img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f5560108-e139-44b5-8a2c-61f107f10256" alt="instagram" target="_blank" />
+</a>
+<a href="https://www.linkedin.com/">
+<img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/47e2fe02-0177-408c-bdca-65f56f5cc822" alt="linkedin" target="_blank" />
+</a>
+<a href="https://www.github.com/t3rminal-cmd/">
+<img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/d8335906-9067-4efd-a0bc-45d9e4d1eae4" alt="github" target="_blank" />
+</a>
 </p>
 <hr>
 
