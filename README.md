@@ -35,10 +35,10 @@
  <a href="mailto:S3cureTangoDown@proton.me">
   <img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/8cc66993-8053-4cf6-a45d-e614773436ac" alt="proton_mail" target="_blank" />
  </a>
-  <a href="https://www.youtube.com/">
+ <a href="https://www.youtube.com/">
   <img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/853bdab3-4101-4148-aec1-d8b82588d1a0" alt="youtube" target="_blank" />
  </a>
-  <a href="https://netlify.app/">
+ <a href="https://netlify.app/">
   <img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/54c3c87c-32fd-42d9-9334-539bb45c23f3" alt="profile" target="_blank" />
  </a>
 </p>
