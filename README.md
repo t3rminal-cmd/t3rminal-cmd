@@ -1,6 +1,5 @@
 <!--===== BANNER ===========================-->
-<img src="https://moodle.acs.gr/pluginfile.php/
-725517/course/overviewfiles/coding.gif" alt="binary banner" width="100%" />
+<img src="https://camo.githubusercontent.com/f28d2388e3258ebcfa03988bcb5de2da4e65a1f8e3b6c57ee8170b426de50555/68747470733a2f2f7777772e6368617270656e692e636f6d2f7374617469632f696d616765732f6172726f772d66756e6374696f6e732d696e2d636c6173732d70726f706572746965732d6d696768742d6e6f742d62652d61732d67726561742d61732d77652d7468696e6b2f62616e6e65722e676966" alt="binary banner" width="100%" />
 
 <!--===== VISITOR COUNTER ==================-->
 <div align="right"><img src="https://komarev.com/ghpvc/?username=t3rminal-cmd&label=Profile%20views&color=0e75b6&style=flat" alt="t3rminal-cmd" /></div>
