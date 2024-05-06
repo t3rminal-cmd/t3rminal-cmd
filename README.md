@@ -114,7 +114,7 @@
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f48bb5f2-4fcf-4089-bf99-ffdbc59a91ed"
       alt="profile" target="_blank" />
   </a>
-  <a href="https://www.instagram.com/urbnsnapshot/">
+  <a href="https://www.instagram.com/t3rminal_cmd/">
     <img height="48"
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f5560108-e139-44b5-8a2c-61f107f10256"
       alt="instagram" target="_blank" />
