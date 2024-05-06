@@ -65,7 +65,7 @@
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/853bdab3-4101-4148-aec1-d8b82588d1a0"
       alt="youtube" target="_blank" />
   </a>
-  <a href="https://netlify.app/">
+  <a href="https://portfolio-jazzy.netlify.app/">
     <img height="48"
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/54c3c87c-32fd-42d9-9334-539bb45c23f3"
       alt="profile" target="_blank" />
@@ -109,12 +109,12 @@
 <h3 align="center">Connect with me:</h3>
 
 <p align="center">
-  <a href="https://netlify.app/">
+  <a href="https://portfolio-jazzy.netlify.app/">
     <img height="48"
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f48bb5f2-4fcf-4089-bf99-ffdbc59a91ed"
       alt="profile" target="_blank" />
   </a>
-  <a href="https://www.instagram.com/">
+  <a href="https://www.instagram.com/urbnsnapshot/">
     <img height="48"
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f5560108-e139-44b5-8a2c-61f107f10256"
       alt="instagram" target="_blank" />
