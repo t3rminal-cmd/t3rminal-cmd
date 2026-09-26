@@ -80,13 +80,12 @@
 
 <div align="center">
   <p>
-    <img align="center"
-      src="https://github-readme-stats.vercel.app/api/top-langs?username=t3rminal-cmd&show_icons=true&locale=en&layout=compact"
-      alt="t3rminal-cmd" />
+    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/top-langs.svg"
+      alt="t3rminal-cmd top languages" />
   </p>
   <p>
-    <img align="center" src="https://github-readme-stats.vercel.app/api?username=t3rminal-cmd&show_icons=true&locale=en"
-      alt="t3rminal-cmd" />
+    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/stats.svg"
+      alt="t3rminal-cmd GitHub stats" />
   </p>
 </div>
 
