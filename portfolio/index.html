@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="t3rminal-cmd — amateur web designer & developer. Veteran, runner, foodie." />
+  <title>t3rminal-cmd | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a href="#home" class="logo">&gt;_ t3rminal-cmd</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#about">about</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#projects">projects</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="home" class="hero container">
+      <div class="terminal" role="presentation">
+        <div class="terminal-bar">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="terminal-title">~/portfolio</span>
+        </div>
+        <div class="terminal-body">
+          <p><span class="prompt">$</span> whoami</p>
+          <h1 class="typed" data-lines="Hello, World! 👋🏽|I'm t3rminal-cmd...|An amateur web designer &amp; developer."></h1>
+          <p class="muted">Veteran | Runner | Foodie</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">./view-projects</a>
+            <a href="#contact" class="btn btn-ghost">./contact-me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section container">
+      <h2 class="section-title"><span class="prompt">#</span> about</h2>
+      <div class="about-grid">
+        <div class="card">
+          <p>
+            I'm a veteran turned amateur web designer and developer. I'm building my skills one project
+            at a time, and this responsive portfolio is one of them.
+          </p>
+          <ul class="facts">
+            <li><span>🔭</span> Currently working on: <strong>A Responsive Portfolio</strong></li>
+            <li><span>🌱</span> Currently learning: <strong>HTML, CSS, JavaScript, Python</strong></li>
+            <li><span>💬</span> Ask me about: <strong>Coffee, Snowboarding, or C4 energy drinks</strong></li>
+            <li><span>⚡</span> Fun fact: <strong>All dogs go to Heaven</strong></li>
+          </ul>
+        </div>
+        <img class="about-gif" src="https://verisoft.ai/wp-content/uploads/2022/05/programmer-animation.gif"
+          alt="Animated illustration of a programmer at a desk" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section container">
+      <h2 class="section-title"><span class="prompt">#</span> skills</h2>
+      <ul class="skills">
+        <li class="skill"><span class="skill-icon">&lt;/&gt;</span>HTML</li>
+        <li class="skill"><span class="skill-icon">{ }</span>CSS</li>
+        <li class="skill"><span class="skill-icon">JS</span>JavaScript</li>
+        <li class="skill"><span class="skill-icon">py</span>Python</li>
+        <li class="skill"><span class="skill-icon">git</span>Git &amp; GitHub</li>
+        <li class="skill"><span class="skill-icon">📱</span>Responsive Design</li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section container">
+      <h2 class="section-title"><span class="prompt">#</span> projects</h2>
+      <!-- Replace these placeholder cards with your real projects. -->
+      <div class="projects">
+        <article class="card project">
+          <h3>Responsive Portfolio</h3>
+          <p>This site: a mobile-first portfolio built with plain HTML, CSS, and JavaScript.</p>
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>JS</li></ul>
+          <div class="project-links">
+            <a href="https://github.com/t3rminal-cmd/t3rminal-cmd" target="_blank" rel="noopener">source ↗</a>
+          </div>
+        </article>
+        <article class="card project">
+          <h3>GitHub Profile README</h3>
+          <p>Custom profile page with stats, a typing banner, and an automated contribution snake.</p>
+          <ul class="tags"><li>Markdown</li><li>GitHub Actions</li></ul>
+          <div class="project-links">
+            <a href="https://github.com/t3rminal-cmd" target="_blank" rel="noopener">view ↗</a>
+          </div>
+        </article>
+        <article class="card project placeholder">
+          <h3>Next project</h3>
+          <p>Coming soon. Probably something with Python.</p>
+          <ul class="tags"><li>Python</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section container">
+      <h2 class="section-title"><span class="prompt">#</span> contact</h2>
+      <div class="card contact">
+        <p>The best way to reach me is by email.</p>
+        <a class="btn btn-primary" href="mailto:S3cureTangoDown@proton.me">S3cureTangoDown@proton.me</a>
+        <ul class="socials">
+          <li><a href="https://github.com/t3rminal-cmd" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.instagram.com/t3rminal_cmd/" target="_blank" rel="noopener">Instagram</a></li>
+          <!-- TODO: point these at your own profiles -->
+          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="container">&copy; <span id="year"></span> t3rminal-cmd. Built from scratch.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

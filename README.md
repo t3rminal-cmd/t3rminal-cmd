@@ -31,12 +31,11 @@
 <hr>
 <hr>
 
-<!--= RIGHT GIF -->
-<div align="center">
-  <img align="right"
-    src="https://verisoft.ai/wp-content/uploads/2022/05/programmer-animation.gif"
-    alt="coding gif" height="245" width="350" />
-</div>
+<!-- CODING GIF (centered so it doesn't overlap the text on narrow screens) -->
+<p align="center">
+  <img src="https://verisoft.ai/wp-content/uploads/2022/05/programmer-animation.gif"
+    alt="coding gif" width="350" />
+</p>
 
 <!-- LEFT CONTENT -->
 
@@ -56,18 +55,20 @@
 
 <p align="center">
   <a href="mailto:S3cureTangoDown@proton.me">
-    <img height="48" src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/8cc66993-8053-4cf6-a45d-e614773436ac" alt="proton_mail" />
-</a>
+    <img height="48"
+      src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/8cc66993-8053-4cf6-a45d-e614773436ac"
+      alt="proton_mail" />
+  </a>
 
   <a href="https://www.youtube.com/">
     <img height="48"
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/853bdab3-4101-4148-aec1-d8b82588d1a0"
-      alt="youtube" target="_blank" />
+      alt="youtube" />
   </a>
   <a href="https://portfolio-jazzy.netlify.app/">
     <img height="48"
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/54c3c87c-32fd-42d9-9334-539bb45c23f3"
-      alt="profile" target="_blank" />
+      alt="profile" />
   </a>
 </p>
 
@@ -95,8 +96,12 @@
 <h3 align="center">Snake Contribution:</h3>
 
 <p align="center">
-  <image src="https://github.com/t3rminal-cmd/t3rminal-cmd/blob/output/github-contribution-grid-snake.gif"
-    alt="snake eating contribution" width="600" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/github-contribution-grid-snake-dark.svg" />
+    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/github-contribution-grid-snake.gif"
+      alt="snake eating contribution" width="600" />
+  </picture>
 </p>
 
 <hr>
@@ -108,17 +113,17 @@
   <a href="https://portfolio-jazzy.netlify.app/">
     <img height="48"
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f48bb5f2-4fcf-4089-bf99-ffdbc59a91ed"
-      alt="profile" target="_blank" />
+      alt="profile" />
   </a>
   <a href="https://www.instagram.com/t3rminal_cmd/">
     <img height="48"
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f5560108-e139-44b5-8a2c-61f107f10256"
-      alt="instagram" target="_blank" />
+      alt="instagram" />
   </a>
   <a href="https://www.linkedin.com/">
     <img height="48"
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/47e2fe02-0177-408c-bdca-65f56f5cc822"
-      alt="linkedin" target="_blank" />
+      alt="linkedin" />
   </a>
 </p>
 
