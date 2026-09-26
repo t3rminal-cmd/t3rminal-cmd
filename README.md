@@ -24,55 +24,44 @@
   </a>
 </div>
 
-<hr>
+<br>
 
-<!-- HEADER -->
-<h2 align="center">An amateur web designer & developer.</h2>
+<!-- HEADLINE (regenerate with: python3 scripts/make_graffiti.py) -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/headline-dark.svg" />
+  <img src="assets/headline-light.svg"
+    alt="An amateur web designer and developer. Veteran, runner, foodie." width="100%" />
+</picture>
 
-<!-- SUB HEADER -->
-<h4 align="center">Veteran | Runner | Foodie</h4>
-
-<hr>
-<hr>
-
-<!-- CODING GIF (centered so it doesn't overlap the text on narrow screens) -->
+<!-- CODING GIF -->
 <p align="center">
   <img src="https://verisoft.ai/wp-content/uploads/2022/05/programmer-animation.gif"
     alt="coding gif" width="350" />
 </p>
 
-<!-- LEFT CONTENT -->
+<!-- ABOUT ME -->
+<div align="center">
+  <table>
+    <tr>
+      <td>🔭 <b>Working on</b></td>
+      <td>A responsive portfolio</td>
+    </tr>
+    <tr>
+      <td>🌱 <b>Learning</b></td>
+      <td>HTML · CSS · JavaScript · Python</td>
+    </tr>
+    <tr>
+      <td>💬 <b>Ask me about</b></td>
+      <td>Coffee, snowboarding or C4 energy drinks</td>
+    </tr>
+  </table>
+</div>
 
-🔭 I'm currently working on: **A Responsive Portfolio**
-
-🌱 I'm currently learning: **HTML, CSS, JavaScript, Python**
-
-💬 Ask me about: **Coffee, Snowboarding, or C4 energy drinks**
-
-⚡ Fun fact of the day:<br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-dark.svg" /><img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-light.svg" alt="Fun fact of the day" /></picture>
-
-📄 Check out my portfolio: **click below**
-
-📫 How to reach me: **via email**
-
-<br>
-
+<h4 align="center">⚡ Fun fact of the day</h4>
 <p align="center">
-  <a href="mailto:S3cureTangoDown@proton.me">
-    <img height="48"
-      src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/8cc66993-8053-4cf6-a45d-e614773436ac"
-      alt="proton_mail" />
-  </a>
-
-  <a href="https://t3rminal-cmd.github.io/Portfolio-Bootstrap/">
-    <img height="48"
-      src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/54c3c87c-32fd-42d9-9334-539bb45c23f3"
-      alt="profile" />
-  </a>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-dark.svg" /><img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-light.svg" alt="Fun fact of the day" /></picture>
 </p>
 
-<hr>
 <hr>
 
 <!-- MY STATS -->
@@ -109,24 +98,15 @@
 
 <hr>
 
-<!-- SOCIAL ICON -->
+<!-- CONNECT (icons are made by scripts/make_graffiti.py) -->
 <h3 align="center">Connect with me:</h3>
 
 <p align="center">
-  <a href="https://t3rminal-cmd.github.io/Portfolio-Bootstrap/">
-    <img height="48"
-      src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f48bb5f2-4fcf-4089-bf99-ffdbc59a91ed"
-      alt="profile" />
-  </a>
-  <a href="https://www.instagram.com/t3rminal_cmd/">
-    <img height="48"
-      src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f5560108-e139-44b5-8a2c-61f107f10256"
-      alt="instagram" />
-  </a>
+  <a href="mailto:S3cureTangoDown@proton.me" title="Email me">
+    <img height="72" src="assets/icon-email.svg" alt="Email" /></a>&nbsp;&nbsp;
+  <a href="https://t3rminal-cmd.github.io/Portfolio-Bootstrap/" title="My portfolio">
+    <img height="72" src="assets/icon-portfolio.svg" alt="Portfolio" /></a>&nbsp;&nbsp;
+  <a href="https://www.instagram.com/t3rminal_cmd/" title="Instagram">
+    <img height="72" src="assets/icon-instagram.svg" alt="Instagram" /></a>
 </p>
 
-<hr>
-<hr>
-
-<!-- ICON SITE -->
-<!-- https://www.iconfinder.com/iconsets/colorful-guache-social-media-logos-1 -->
