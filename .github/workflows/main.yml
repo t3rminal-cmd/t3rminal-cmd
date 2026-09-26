@@ -55,6 +55,23 @@ jobs:
           path: dist/top-langs.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      # Dark versions, shown to people using GitHub's dark theme
+      - name: Generate stats card (dark)
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=t3rminal-cmd&show_icons=true&locale=en&theme=github_dark
+          path: dist/stats-dark.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate top languages card (dark)
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=t3rminal-cmd&layout=compact&locale=en&theme=github_dark
+          path: dist/top-langs-dark.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Generate the snake files in './dist/'
         uses: Platane/snk@v3
         id: snake-gif

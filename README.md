@@ -80,12 +80,16 @@
 
 <div align="center">
   <p>
-    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/top-langs.svg"
-      alt="t3rminal-cmd top languages" />
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/top-langs-dark.svg" />
+      <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/top-langs.svg" alt="t3rminal-cmd top languages" />
+    </picture>
   </p>
   <p>
-    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/stats.svg"
-      alt="t3rminal-cmd GitHub stats" />
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/stats-dark.svg" />
+      <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/stats.svg" alt="t3rminal-cmd GitHub stats" />
+    </picture>
   </p>
 </div>
 
