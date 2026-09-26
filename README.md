@@ -65,7 +65,7 @@
       alt="proton_mail" />
   </a>
 
-  <a href="https://portfolio-jazzy.netlify.app/">
+  <a href="https://t3rminal-cmd.github.io/Portfolio-Bootstrap/">
     <img height="48"
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/54c3c87c-32fd-42d9-9334-539bb45c23f3"
       alt="profile" />
@@ -113,7 +113,7 @@
 <h3 align="center">Connect with me:</h3>
 
 <p align="center">
-  <a href="https://portfolio-jazzy.netlify.app/">
+  <a href="https://t3rminal-cmd.github.io/Portfolio-Bootstrap/">
     <img height="48"
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f48bb5f2-4fcf-4089-bf99-ffdbc59a91ed"
       alt="profile" />
