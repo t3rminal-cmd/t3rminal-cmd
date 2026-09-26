@@ -1,7 +1,8 @@
-<!-- BANNER -->
-<img
-  src="https://www.charpeni.com/static/images/arrow-functions-in-class-properties-might-not-be-as-great-as-we-think/banner.gif"
-  alt="binary banner" width="100%" />
+<!-- BANNER (regenerate with: python3 scripts/make_banner.py) -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg" />
+  <img src="assets/banner-light.svg" alt="t3rminal-cmd banner" width="100%" />
+</picture>
 
 <!-- VISITOR COUNTER -->
 <div align="right">
@@ -14,9 +15,12 @@
 
 <div align="center">
   <a href="https://git.io/typing-svg">
-    <img
-      src="https://readme-typing-svg.demolab.com?font=JetBrains+mono&weight=600&size=30&duration=3000&pause=500&color=1BC830&center=true&vCenter=true&random=false&width=435&lines=Hello%2C+World!+%F0%9F%91%8B%F0%9F%8F%BD;I'm+t3Rminal-cmd..."
-      alt="Typing SVG" />
+    <picture>
+      <source media="(prefers-color-scheme: dark)"
+        srcset="https://readme-typing-svg.demolab.com?font=JetBrains+mono&weight=600&size=30&duration=3000&pause=500&color=1BC830&center=true&vCenter=true&random=false&width=435&lines=Hello%2C+World!+%F0%9F%91%8B%F0%9F%8F%BD;I'm+t3Rminal-cmd..." />
+      <img src="https://readme-typing-svg.demolab.com?font=JetBrains+mono&weight=600&size=30&duration=3000&pause=500&color=1A7F37&center=true&vCenter=true&random=false&width=435&lines=Hello%2C+World!+%F0%9F%91%8B%F0%9F%8F%BD;I'm+t3Rminal-cmd..."
+        alt="Typing SVG" />
+    </picture>
   </a>
 </div>
 
@@ -45,7 +49,8 @@
 
 💬 Ask me about: **Coffee, Snowboarding, or C4 energy drinks**
 
-⚡ Fun fact: **All dogs go to Heaven**
+⚡ Fun fact of the day:<br>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-dark.svg" /><img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-light.svg" alt="Fun fact of the day" /></picture>
 
 📄 Check out my portfolio: **click below**
 
@@ -80,12 +85,16 @@
 
 <div align="center">
   <p>
-    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/top-langs.svg"
-      alt="t3rminal-cmd top languages" />
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/top-langs-dark.svg" />
+      <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/top-langs.svg" alt="t3rminal-cmd top languages" />
+    </picture>
   </p>
   <p>
-    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/stats.svg"
-      alt="t3rminal-cmd GitHub stats" />
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/stats-dark.svg" />
+      <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/stats.svg" alt="t3rminal-cmd GitHub stats" />
+    </picture>
   </p>
 </div>
 

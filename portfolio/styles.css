@@ -7,8 +7,25 @@
   --muted: #8b949e;
   --accent: #1bc830;
   --accent-dim: rgba(27, 200, 48, 0.15);
+  --header-bg: rgba(13, 17, 23, 0.9);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
   --radius: 10px;
   --font: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+
+/* Light theme: darker green so text stays readable on white */
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-alt: #f6f8fa;
+  --border: #d0d7de;
+  --text: #1f2328;
+  --muted: #59636e;
+  --accent: #1a7f37;
+  --accent-dim: rgba(26, 127, 55, 0.12);
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --shadow: 0 20px 60px rgba(31, 35, 40, 0.12);
+  color-scheme: light;
 }
 
 *,
@@ -30,6 +47,7 @@ html {
 
 body {
   margin: 0;
+  transition: background-color 0.2s, color 0.2s;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
@@ -82,7 +100,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(13, 17, 23, 0.9);
+  background: var(--header-bg);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
@@ -99,6 +117,37 @@ a {
   font-weight: 800;
   text-decoration: none;
 }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  background: var(--bg-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--accent);
+}
+
+/* Show the icon for the theme you'd switch TO */
+.theme-toggle .icon-to-dark { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-to-dark { display: inline; }
+:root[data-theme="light"] .theme-toggle .icon-to-light { display: none; }
 
 .nav-toggle {
   display: none;
@@ -151,7 +200,7 @@ a {
   background: var(--bg-alt);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  box-shadow: var(--shadow);
   overflow: hidden;
 }
 

@@ -23,6 +23,27 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") setMenu(false);
 });
 
+// ===== Theme toggle =====
+// The initial theme is set by the inline script in <head>.
+const themeToggle = document.querySelector(".theme-toggle");
+const root = document.documentElement;
+
+function syncThemeLabel() {
+  const next = root.dataset.theme === "light" ? "dark" : "light";
+  themeToggle.setAttribute("aria-label", `Switch to ${next} theme`);
+}
+
+themeToggle.addEventListener("click", () => {
+  root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
+  try {
+    localStorage.setItem("theme", root.dataset.theme);
+  } catch (e) {
+    // Storage can be blocked (private mode); the toggle still works for this visit.
+  }
+  syncThemeLabel();
+});
+syncThemeLabel();
+
 // ===== Typing effect =====
 const typed = document.querySelector(".typed");
 const lines = typed.dataset.lines.split("|");
