@@ -32,20 +32,13 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v4
    
-      - name: Generate the snake files in './dist/'
-        uses: Platane/snk@v3
-        id: snake-gif
-        with:
-          github_user_name: t3rminal-cmd
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-            dist/github-contribution-grid-snake.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       # The public github-readme-stats.vercel.app instance is rate-limited and
       # often returns errors, so build the stats cards here instead.
+      # These run before the snake step: snk runs in a root-owned Docker
+      # container, and if it creates ./dist first this action can't write to it.
+      - name: Create output folder
+        run: mkdir -p dist
+
       - name: Generate stats card
         uses: stats-organization/github-readme-stats-action@v2
         with:
@@ -61,6 +54,18 @@ jobs:
           options: username=t3rminal-cmd&layout=compact&locale=en
           path: dist/top-langs.svg
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate the snake files in './dist/'
+        uses: Platane/snk@v3
+        id: snake-gif
+        with:
+          github_user_name: t3rminal-cmd
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-contribution-grid-snake.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Show build status
         run: git status
