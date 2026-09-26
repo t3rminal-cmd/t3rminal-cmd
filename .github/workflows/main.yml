@@ -1,6 +1,6 @@
-# Generates the contribution snake, stats cards and fun fact of the day,
+# Generates the contribution chart, stats cards and fun fact of the day,
 # and publishes them to the "output" branch for the README to load.
-name: Generate Snake and Stats
+name: Generate Profile Images
 
 # Controls when the action will run.
 on:
@@ -35,8 +35,8 @@ jobs:
    
       # The public github-readme-stats.vercel.app instance is rate-limited and
       # often returns errors, so build the stats cards here instead.
-      # These run before the snake step: snk runs in a root-owned Docker
-      # container, and if it creates ./dist first this action can't write to it.
+      # The built-in GITHUB_TOKEN can't read contribution counts (the cards show 0);
+      # the optional CONTRIB_TOKEN secret fixes that.
       - name: Create output folder
         run: mkdir -p dist
 
@@ -50,7 +50,7 @@ jobs:
           card: stats
           options: username=t3rminal-cmd&show_icons=true&locale=en
           path: dist/stats.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.CONTRIB_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Generate top languages card
         uses: stats-organization/github-readme-stats-action@v2
@@ -58,7 +58,7 @@ jobs:
           card: top-langs
           options: username=t3rminal-cmd&layout=compact&locale=en
           path: dist/top-langs.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.CONTRIB_TOKEN || secrets.GITHUB_TOKEN }}
 
       # Dark versions, shown to people using GitHub's dark theme
       - name: Generate stats card (dark)
@@ -67,7 +67,7 @@ jobs:
           card: stats
           options: username=t3rminal-cmd&show_icons=true&locale=en&theme=github_dark&hide_border=true
           path: dist/stats-dark.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.CONTRIB_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Generate top languages card (dark)
         uses: stats-organization/github-readme-stats-action@v2
@@ -75,19 +75,23 @@ jobs:
           card: top-langs
           options: username=t3rminal-cmd&layout=compact&locale=en&theme=github_dark&hide_border=true
           path: dist/top-langs-dark.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.CONTRIB_TOKEN || secrets.GITHUB_TOKEN }}
 
-      - name: Generate the snake files in './dist/'
-        uses: Platane/snk@v3
-        id: snake-gif
-        with:
-          github_user_name: t3rminal-cmd
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-            dist/github-contribution-grid-snake.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+      # Contribution chart (replaced the snake, which broke whenever its data source changed).
+      # Start from the last published chart so a failed fetch never leaves the README blank.
+      - name: Restore the last contribution chart
+        run: |
+          if git fetch --depth=1 origin output; then
+            for f in contrib-dark.svg contrib-light.svg; do
+              git show FETCH_HEAD:$f > dist/$f 2>/dev/null || rm -f dist/$f
+            done
+          fi
+
+      - name: Generate contribution chart
+        run: python3 scripts/contrib_graph.py dist t3rminal-cmd
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Optional personal access token (see README). Without it the public contributions page is used.
+          CONTRIB_TOKEN: ${{ secrets.CONTRIB_TOKEN }}
 
       - name: Show build status
         run: git status
@@ -97,6 +101,6 @@ jobs:
         with:
           target_branch: output
           build_dir: dist
-          commit_message: Update snake, stats cards and fun fact
+          commit_message: Update contribution chart, stats cards and fun fact
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -95,15 +95,15 @@
 
 <hr>
 
-<!-- SNAKE CONTRIBUTION -->
-<h3 align="center">Snake Contribution:</h3>
+<!-- CONTRIBUTION CHART (built by scripts/contrib_graph.py) -->
+<h3 align="center">Contribution Activity:</h3>
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)"
-      srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/github-contribution-grid-snake-dark.svg" />
-    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/github-contribution-grid-snake.gif"
-      alt="snake eating contribution" width="600" />
+      srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/contrib-dark.svg" />
+    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/contrib-light.svg"
+      alt="t3rminal-cmd contributions in the last year" width="100%" />
   </picture>
 </p>
 

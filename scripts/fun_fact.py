@@ -1,6 +1,6 @@
 """Render today's fun fact from fun-facts.txt as light and dark SVGs.
 
-The "Generate Snake and Stats" workflow runs this and publishes the images to
+The "Generate Profile Images" workflow runs this and publishes the images to
 the output branch, where the README loads them. The fact changes once a day
 (UTC), stepping through the list in order.
 
