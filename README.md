@@ -65,11 +65,6 @@
       alt="proton_mail" />
   </a>
 
-  <a href="https://www.youtube.com/">
-    <img height="48"
-      src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/853bdab3-4101-4148-aec1-d8b82588d1a0"
-      alt="youtube" />
-  </a>
   <a href="https://portfolio-jazzy.netlify.app/">
     <img height="48"
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/54c3c87c-32fd-42d9-9334-539bb45c23f3"
@@ -127,11 +122,6 @@
     <img height="48"
       src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/f5560108-e139-44b5-8a2c-61f107f10256"
       alt="instagram" />
-  </a>
-  <a href="https://www.linkedin.com/">
-    <img height="48"
-      src="https://github.com/t3rminal-cmd/t3rminal-cmd/assets/167500508/47e2fe02-0177-408c-bdca-65f56f5cc822"
-      alt="linkedin" />
   </a>
 </p>
 
