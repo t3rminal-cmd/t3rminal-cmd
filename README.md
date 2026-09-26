@@ -60,11 +60,13 @@
   </table>
 </div>
 
-<!-- FUN FACT (a new card every day, built by scripts/fun_fact.py) -->
+<!-- FUN FACT (a new card every day, built by scripts/fun_fact.py).
+     "?v=2" makes GitHub's image cache fetch the new card design; bump it if a
+     design change doesn't show up. Daily fact changes don't need it. -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-dark.svg" />
-    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-light.svg" alt="Fun fact of the day" width="760" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-dark.svg?v=2" />
+    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-light.svg?v=2" alt="Fun fact of the day" />
   </picture>
 </p>
 
