@@ -1,4 +1,5 @@
-# GitHub Action for generating a contribution graph with a snake eating your contributions.
+# Generates the contribution snake, stats cards and fun fact of the day,
+# and publishes them to the "output" branch for the README to load.
 name: Generate Snake and Stats
 
 # Controls when the action will run.
@@ -39,6 +40,10 @@ jobs:
       - name: Create output folder
         run: mkdir -p dist
 
+      # Picks a different line from fun-facts.txt each day
+      - name: Generate fun fact of the day
+        run: python3 scripts/fun_fact.py dist
+
       - name: Generate stats card
         uses: stats-organization/github-readme-stats-action@v2
         with:
@@ -60,7 +65,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: username=t3rminal-cmd&show_icons=true&locale=en&theme=github_dark
+          options: username=t3rminal-cmd&show_icons=true&locale=en&theme=github_dark&hide_border=true
           path: dist/stats-dark.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -68,7 +73,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
-          options: username=t3rminal-cmd&layout=compact&locale=en&theme=github_dark
+          options: username=t3rminal-cmd&layout=compact&locale=en&theme=github_dark&hide_border=true
           path: dist/top-langs-dark.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -92,6 +97,6 @@ jobs:
         with:
           target_branch: output
           build_dir: dist
-          commit_message: Update snake animations and stats cards
+          commit_message: Update snake, stats cards and fun fact
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,3 @@
+# If this repo is connected to Netlify, serve the portfolio folder as-is (no build step).
+[build]
+  publish = "portfolio"
