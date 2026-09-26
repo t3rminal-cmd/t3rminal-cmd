@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="portfolio">
   <defs>
-    <radialGradient id="g" cx=".35" cy=".3" r=".8">
+    <radialGradient id="i-g" cx=".35" cy=".3" r=".8">
       <stop offset="0" stop-color="#7dff8e"/>
       <stop offset=".55" stop-color="#1bc830"/>
       <stop offset="1" stop-color="#0b7a1c"/>
     </radialGradient>
-    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+    <filter id="i-rough" x="-10%" y="-10%" width="120%" height="120%">
     <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7"/>
     <feDisplacementMap in="SourceGraphic" scale="3.5"/>
   </filter>
   </defs>
   <circle cx="108.7" cy="37.5" r="0.6" fill="#1bc830" opacity="0.51"/><circle cx="47.2" cy="12.1" r="1.8" fill="#1bc830" opacity="0.46"/><circle cx="19.7" cy="77.0" r="1.3" fill="#1bc830" opacity="0.48"/><circle cx="56.9" cy="107.5" r="0.7" fill="#1bc830" opacity="0.60"/><circle cx="108.2" cy="55.2" r="1.6" fill="#1bc830" opacity="0.74"/><circle cx="90.7" cy="95.6" r="0.7" fill="#1bc830" opacity="0.85"/><circle cx="28.7" cy="20.5" r="0.9" fill="#1bc830" opacity="0.59"/><circle cx="17.9" cy="29.7" r="0.9" fill="#1bc830" opacity="0.53"/><circle cx="86.9" cy="13.3" r="1.0" fill="#1bc830" opacity="0.67"/><circle cx="88.1" cy="22.9" r="2.1" fill="#1bc830" opacity="0.51"/><circle cx="105.7" cy="63.4" r="0.7" fill="#1bc830" opacity="0.88"/><circle cx="48.9" cy="104.8" r="1.1" fill="#1bc830" opacity="0.53"/><circle cx="40.9" cy="95.5" r="1.6" fill="#1bc830" opacity="0.82"/><circle cx="94.2" cy="19.3" r="0.7" fill="#1bc830" opacity="0.69"/><circle cx="95.8" cy="27.9" r="1.0" fill="#1bc830" opacity="0.68"/><circle cx="86.5" cy="97.1" r="1.2" fill="#1bc830" opacity="0.60"/><circle cx="25.8" cy="94.7" r="2.2" fill="#1bc830" opacity="0.66"/><circle cx="18.7" cy="72.6" r="2.1" fill="#1bc830" opacity="0.41"/><circle cx="107.0" cy="75.4" r="1.6" fill="#1bc830" opacity="0.88"/><circle cx="21.9" cy="25.9" r="1.5" fill="#1bc830" opacity="0.53"/><circle cx="110.7" cy="67.5" r="1.1" fill="#1bc830" opacity="0.90"/><circle cx="34.3" cy="19.8" r="0.9" fill="#1bc830" opacity="0.59"/><circle cx="15.4" cy="58.3" r="1.3" fill="#1bc830" opacity="0.71"/><circle cx="19.9" cy="75.5" r="0.9" fill="#1bc830" opacity="0.37"/><circle cx="59.0" cy="104.3" r="1.8" fill="#1bc830" opacity="0.58"/><circle cx="56.6" cy="101.8" r="2.0" fill="#1bc830" opacity="0.52"/><circle cx="96.3" cy="88.7" r="2.1" fill="#1bc830" opacity="0.71"/><circle cx="94.9" cy="19.3" r="0.7" fill="#1bc830" opacity="0.56"/><circle cx="11.9" cy="78.6" r="1.5" fill="#1bc830" opacity="0.87"/><circle cx="83.1" cy="95.3" r="1.4" fill="#1bc830" opacity="0.85"/><circle cx="41.3" cy="99.2" r="0.9" fill="#1bc830" opacity="0.79"/><circle cx="74.5" cy="12.3" r="1.2" fill="#1bc830" opacity="0.62"/><circle cx="88.6" cy="20.8" r="1.6" fill="#1bc830" opacity="0.46"/><circle cx="21.0" cy="86.3" r="1.8" fill="#1bc830" opacity="0.50"/><circle cx="92.5" cy="14.8" r="1.7" fill="#1bc830" opacity="0.61"/><circle cx="13.9" cy="64.1" r="1.2" fill="#1bc830" opacity="0.79"/><circle cx="70.6" cy="98.6" r="1.6" fill="#1bc830" opacity="0.49"/><circle cx="19.4" cy="87.2" r="1.2" fill="#1bc830" opacity="0.47"/>
-  <g filter="url(#rough)" fill="url(#g)" stroke="#111" stroke-width="3.5" stroke-linejoin="round">
+  <g filter="url(#i-rough)" fill="url(#i-g)" stroke="#111" stroke-width="3.5" stroke-linejoin="round">
     <path d="M95.5,53.7 C94.6,59.1 94.3,65.9 92.9,70.9 C91.6,75.9 91.9,79.0 87.3,83.7 C82.7,88.4 71.7,97.8 65.4,99.0 C59.1,100.3 54.4,93.7 49.5,91.4 C44.7,89.0 39.7,88.0 36.4,85.1 C33.0,82.2 32.8,78.3 29.2,73.9 C25.7,69.6 16.4,65.7 15.3,59.1 C14.2,52.4 18.5,39.7 22.5,34.1 C26.5,28.6 34.9,28.9 39.3,25.8 C43.7,22.8 43.5,18.1 48.9,16.1 C54.4,14.1 66.2,11.3 72.2,13.7 C78.1,16.1 80.1,26.3 84.5,30.5 C88.8,34.6 96.4,34.9 98.2,38.8 C100.1,42.7 96.4,48.4 95.5,53.7Z"/>
     <path d="M48.7,84.0 L49.7,104.0 A3.6,3.6 0 1 0 54.3,104.0 L55.3,84.0 Z"/><path d="M38.2,84.0 L39.3,109.6 A4.2,4.2 0 1 0 44.7,109.6 L45.8,84.0 Z"/>
   </g>

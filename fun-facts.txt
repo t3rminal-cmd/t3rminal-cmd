@@ -1,4 +1,4 @@
-# One fun fact per line (keep each under ~72 characters so it fits on one line).
+# One fun fact per line. Long facts wrap onto more lines of the card; about 150 characters looks best.
 # The README shows a different one each day, in order.
 # Lines starting with # and blank lines are ignored. Add, remove, or reorder freely.
 All dogs go to Heaven.

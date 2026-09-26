@@ -39,27 +39,33 @@
     alt="coding gif" width="350" />
 </p>
 
-<!-- ABOUT ME -->
+<!-- ABOUT ME (icons are made by scripts/make_graffiti.py) -->
 <div align="center">
   <table>
     <tr>
-      <td>🔭 <b>Working on</b></td>
-      <td>A responsive portfolio</td>
+      <td><img src="assets/icon-working.svg" width="40" alt="" /></td>
+      <td align="left"><b>Working on</b></td>
+      <td align="left">A responsive portfolio</td>
     </tr>
     <tr>
-      <td>🌱 <b>Learning</b></td>
-      <td>HTML · CSS · JavaScript · Python</td>
+      <td><img src="assets/icon-learning.svg" width="40" alt="" /></td>
+      <td align="left"><b>Learning</b></td>
+      <td align="left">HTML · CSS · JavaScript · Python</td>
     </tr>
     <tr>
-      <td>💬 <b>Ask me about</b></td>
-      <td>Coffee, snowboarding or C4 energy drinks</td>
+      <td><img src="assets/icon-ask.svg" width="40" alt="" /></td>
+      <td align="left"><b>Ask me about</b></td>
+      <td align="left">Coffee, snowboarding or C4 energy drinks</td>
     </tr>
   </table>
 </div>
 
-<h4 align="center">⚡ Fun fact of the day</h4>
+<!-- FUN FACT (a new card every day, built by scripts/fun_fact.py) -->
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-dark.svg" /><img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-light.svg" alt="Fun fact of the day" /></picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-dark.svg" />
+    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-light.svg" alt="Fun fact of the day" width="760" />
+  </picture>
 </p>
 
 <hr>
