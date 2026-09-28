@@ -1,0 +1,6 @@
+High RULES Time mismatch: "21:45 (21:45)" vs "2140 hours (21:40)" || Statement: Affidavits/2026-00123 Affidavit.docx · page 1 | Source: Arrest Report/2026-00123 Arrest Report.pdf · page 1
+High RULES Name spelled differently: "Sampel" vs "Sample" || Statement: Affidavits/2026-00123 Affidavit.docx · page 1 | Source: Arrest Report/2026-00123 Arrest Report.pdf · page 1
+High RULES Licence plate mismatch: "TST-1248" vs "TST-1284" || Statement: Affidavits/2026-00123 Affidavit.docx · page 1 | Source: Arrest Report/2026-00123 Arrest Report.pdf · page 1
+High RULES Count mismatch: "three shots" vs "two shots" || Statement: Affidavits/2026-00123 Affidavit.docx · page 1 | Source: Arrest Report/2026-00123 Arrest Report.pdf · page 1
+High RULES Amount mismatch: "$2,450" vs "$2,540" || Statement: Affidavits/2026-00123 Affidavit.docx · page 1 | Source: Arrest Report/2026-00123 Arrest Report.pdf · page 1
+Medium AI Contradicted by Arrest Report/2026-00123 Arrest Report.pdf || Statement: Affidavits/2026-00123 Affidavit.docx · page 1 | Source: Arrest Report/2026-00123 Arrest Report.pdf · page 1

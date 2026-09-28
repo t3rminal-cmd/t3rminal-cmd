@@ -160,24 +160,35 @@ If CaseVault looks different from the screenshots, you're almost certainly runni
 
 ---
 
-## Findings from this walkthrough (v1.9)
+## Findings from this walkthrough — fixed in v1.9.1
 
-**Bugs**
+All the findings below are fixed in **CaseVault 1.9.1** ([t3rminal-cmd/casevault#9](https://github.com/t3rminal-cmd/casevault/pull/9); the "null" fix is #8). The screenshots in `2 - Screenshots` were retaken with 1.9.1. Screenshots 43–45 show the new parts.
 
-1. 🔴 **Online redaction leaks details** (v1.9 `js/secure/pii.js`). Screenshot `[37]`.
-   - Words from *your own details* and the case client are matched as single words: here *Example*, from your agency name. When such a word sits inside an address or email, it **replaces the address/email match**, so only the word is hidden: `1420 [NAME_2] Avenue`, `casey.[NAME_2]@agency.[NAME_2]`. With a real agency like *Austin Police Department*, `1420 Oak Street, Austin` would go out as `1420 Oak Street, [NAME_1]`.
-   - 7-digit phone numbers (`555-0142`) aren't detected.
-   - Plates are only detected right after the word "plate" (`Vehicle TST-1284` leaks).
-   - Until this is fixed, read *Exactly what will be sent* carefully, and use **Hide this too** for anything left.
-2. 🟠 **Swapped-letter name typos are missed.** *Sampel* vs *Sample* isn't flagged (planted error #2). *Dias/Diaz* is. The name rule counts a swap as 2 edits.
-3. 🟡 **Case number with or without the year**: a draft saying *Case No. 00123* gets a Low flag against reports that say *2026-00123*.
-4. 🟡 **Exported draft name repeats the type**: `2026-00123 Affidavit - Affidavit - arrest warrant.docx`.
-5. 🟡 *"null"* showed as text above check results. **Fixed in PR #8**.
+| # | Found in v1.9 | In v1.9.1 |
+|---|---|---|
+| 1 | 🔴 Online redaction leaked the plate, a 7-digit phone number, and parts of addresses/emails that contained a known name | Overlaps are merged, so the whole address or email is hidden. 7-digit phones and plates without "plate" are found. Step 10 now shows `[PLATE_1]`, `[ADDRESS_1]`, `[PHONE_1]`, `[EMAIL_1]` |
+| 2 | 🟠 *Sampel* vs *Sample* not flagged | Flagged (High), with the Arrest Report as the source. Step 7 now expects **5** High rule flags |
+| 3 | 🟡 `00123` vs `2026-00123` flagged | Treated as the same number |
+| 4 | 🟡 `… Affidavit - Affidavit - …` export name | `2026-00123 Affidavit - arrest warrant.docx` |
+| 5 | 🟡 "null" above check results | Gone |
+| — | Auto ran the 7B model on the L14 | **AI profile per PC.** Auto uses Light where the AI runs on the processor `[43] [44]` |
+| — | Template lines flagged "not found" | Your own details and today's date are ignored |
+| — | Cramped Files dates | Short dates (`28 Sep 22:48`) |
+| — | — | New **Vault → Maintenance → Run self-test** (13 checks) `[45]` |
 
-**Suggestions**
+### Updated expectations for v1.9.1
 
-- **AI profile per PC** (important with your two models). The profile is stored in `vault.json`, which travels with the SSD, and *Auto* picks Quick whenever it's installed. Because both models live on W:, the L14 also gets the 7B model on its CPU. Remember the choice per PC in the browser (not case data), or pick automatically from what Ollama reports (GPU or not).
-- **Thorough isn't needed.** With Quick + Light you have what CaseVault needs. A 14B model on the 6 GB RTX 3050 would be split into RAM and run slowly. Do install **`nomic-embed-text`** (~270 MB) if you haven't: it makes the AI review find the right report passages much better.
-- **Drafts from a template**: don't flag the template's own lines in a draft check (*Prepared <today>*, your address in the signature block). They show up as Low "not found" noise.
-- **Files table**: the *Added* column wraps onto 4 lines. Use a short date (`28 Sep 22:48`) and let the name use the space.
-- **A self-test page** (Vault → *Run self-test*) that loads a built-in mock case like this one and reports pass/fail, so you can confirm a new version on each PC in a minute.
+- **Step 7:** 5 High rule flags: time, **name (Sampel/Sample)**, plate, count, amount.
+- **Step 10:** *Exactly what will be sent* contains no `TST-1284`, `1420`, `555-0142` or any part of the email.
+- **Step 14 (L14):** the header shows **Light**, either straight away or after the first AI request with *"This PC runs the AI on its processor…"*. Click **AI:** → *Profile on this PC* for the reason. Choosing a profile on one PC doesn't change the other.
+- **New step 15, self-test:** Vault → Maintenance → **Run self-test…** → all ✓ on both PCs (**!** on passage search until nomic-embed-text is installed).
+
+## Adding nomic-embed-text (passage search) — short version
+
+1. Start `W:\Start-CaseVault.bat` and leave its window open.
+2. Windows key + R → `cmd` → Enter.
+3. `W:\ollama\ollama.exe pull nomic-embed-text` → Enter → wait for **success** (~270 MB; needs internet once).
+4. `W:\ollama\ollama.exe list` shows `nomic-embed-text:latest`.
+5. CaseVault → click **AI:** → **Check again** → ✓ *Passage search: nomic-embed-text:latest*.
+
+Once on W:, both PCs use it. The full version is in CaseVault's `docs/AI-SETUP.md` → *Adding nomic-embed-text*.
