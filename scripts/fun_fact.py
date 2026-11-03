@@ -15,16 +15,16 @@ import sys
 import textwrap
 from pathlib import Path
 
-from graffiti import COLORS, GLYPHS, THEMES, icon, load_font
+from graffiti import COLORS, GLYPHS, PAINT, THEMES, icon, load_font
 
 FACTS_FILE = Path(__file__).resolve().parent.parent / "fun-facts.txt"
 # The fact itself uses GitHub's README font, drawn by the viewer's browser.
 FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif"
 TITLE = "fun fact of the day"
 
-W = 760
+W = 1000          # same width as the terminal, about-me and project cards
 TEXT_X = 150      # text starts right of the badge
-WRAP_AT = 52      # characters per line at 19px bold, fits W - TEXT_X with room to spare
+WRAP_AT = 72      # characters per line at 19px bold, fits W - TEXT_X with room to spare
 LINE_H = 28
 BADGE = 110
 
@@ -60,11 +60,26 @@ def render(fact, number, total, colors, face, badge):
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{height}" viewBox="0 0 {W} {height}" role="img" aria-label="Fun fact of the day: {html.escape(fact)}">
   <style>
     {face}
-    .title {{ font: 26px 'Marker', 'Comic Sans MS', cursive; fill: {colors['tag']}; }}
+    .title {{ font: 26px 'Marker', 'Comic Sans MS', cursive; fill: url(#ff-paint);
+              stroke: {colors['outline']}; stroke-width: 4px; paint-order: stroke; stroke-linejoin: round; }}
     .fact {{ font: 600 19px {FONT}; fill: {colors['text']}; }}
     .foot {{ font: 16px 'Marker', 'Comic Sans MS', cursive; fill: {colors['muted']}; }}
   </style>
+  <defs>
+    <linearGradient id="ff-paint" x1="0" x2="1">
+      <stop offset="0" stop-color="{PAINT[0]}"/><stop offset=".5" stop-color="{PAINT[1]}"/><stop offset="1" stop-color="{PAINT[2]}"/>
+    </linearGradient>
+    <radialGradient id="ff-glow">
+      <stop offset="0" stop-color="{COLORS['bolt'][1]}" stop-opacity=".35"/>
+      <stop offset="1" stop-color="{COLORS['bolt'][1]}" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="ff-clip"><rect x="1" y="1" width="{W - 2}" height="{height - 2}" rx="12"/></clipPath>
+  </defs>
   <rect x="1" y="1" width="{W - 2}" height="{height - 2}" rx="12" fill="{colors['wall']}" stroke="{colors['border']}"/>
+  <g clip-path="url(#ff-clip)">
+    <circle cx="77" cy="{height / 2:.0f}" r="95" fill="url(#ff-glow)"/>
+    <rect x="1" y="1" width="{W - 2}" height="4" fill="url(#ff-paint)"/>
+  </g>
   {badge.replace('width="120" height="120"', f'x="22" y="{(height - BADGE) / 2:.0f}" width="{BADGE}" height="{BADGE}"')}
   <text class="title" x="{TEXT_X}" y="44" transform="rotate(-3 {TEXT_X} 44)">{TITLE}</text>
   <text class="fact">{tspans}</text>

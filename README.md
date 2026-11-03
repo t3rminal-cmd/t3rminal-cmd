@@ -27,36 +27,20 @@
     alt="ls ~/projects: casevault, portfolio, t3rminal-cmd. Now shipping CaseVault v1.180." width="100%" />
 </picture>
 
-<!-- ABOUT ME (icons are made by scripts/make_graffiti.py) -->
-<div align="center">
-  <table>
-    <tr>
-      <td><img src="assets/icon-working.svg?v=3" width="48" alt="" /></td>
-      <td align="left"><b>Working on</b></td>
-      <td align="left"><a href="https://github.com/t3rminal-cmd/casevault">CaseVault</a> — offline case files + local AI</td>
-    </tr>
-    <tr>
-      <td><img src="assets/icon-learning.svg?v=3" width="48" alt="" /></td>
-      <td align="left"><b>Learning</b></td>
-      <td align="left">HTML · CSS · JavaScript · Python</td>
-    </tr>
-    <tr>
-      <td><img src="assets/icon-ask.svg?v=3" width="48" alt="" /></td>
-      <td align="left"><b>Ask me about</b></td>
-      <td align="left">Coffee, snowboarding or C4 energy drinks</td>
-    </tr>
-  </table>
-</div>
+<!-- ABOUT ME (regenerate with: python3 scripts/make_about.py) -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/about-dark.svg?v=1" />
+  <img src="assets/about-light.svg?v=1"
+    alt="Working on: CaseVault, offline case files + local AI. Learning: HTML, CSS, JavaScript, Python. Ask me about: coffee, snowboarding or C4 energy drinks." width="100%" />
+</picture>
 
 <!-- FUN FACT (a new card every day, built by scripts/fun_fact.py).
-     "?v=2" makes GitHub's image cache fetch the new card design; bump it if a
+     "?v=4" makes GitHub's image cache fetch the new card design; bump it if a
      design change doesn't show up. Daily fact changes don't need it. -->
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-dark.svg?v=3" />
-    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-light.svg?v=3" alt="Fun fact of the day" />
-  </picture>
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-dark.svg?v=4" />
+  <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-light.svg?v=4" alt="Fun fact of the day" width="100%" />
+</picture>
 
 <hr>
 
