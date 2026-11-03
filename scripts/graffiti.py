@@ -82,12 +82,30 @@ def splat(rng, cx, cy, r, bumps=14, wobble=0.14):
 
 
 def drip(x, top, length, width):
-    """A paint drip: a narrow column with a round drop at the end."""
+    """A paint run: flares out of the paint above, thins to a neck, and ends
+    in a heavy teardrop. `top` should sit inside the painted shape so the run
+    looks like it flows out of it rather than hanging off its edge."""
     w = width / 2
-    b = top + length
-    return (f"M{x - w:.1f},{top:.1f} L{x - w * 0.7:.1f},{b:.1f} "
-            f"A{w * 1.1:.1f},{w * 1.1:.1f} 0 1 0 {x + w * 0.7:.1f},{b:.1f} "
-            f"L{x + w:.1f},{top:.1f} Z")
+    neck = w * 0.68
+    bulb = w * 1.0
+    flare = w * 2.1
+    cy = top + length - bulb                      # centre of the drop
+    ny = cy - (bulb ** 2 - neck ** 2) ** 0.5      # where the neck meets the drop
+    return (f"M{x - flare:.1f},{top:.1f} "
+            f"C{x - w * 0.7:.1f},{top + 2:.1f} {x - neck:.1f},{top + (ny - top) * 0.3:.1f} {x - neck:.1f},{ny:.1f} "
+            f"A{bulb:.1f},{bulb:.1f} 0 1 0 {x + neck:.1f},{ny:.1f} "
+            f"C{x + neck:.1f},{top + (ny - top) * 0.3:.1f} {x + w * 0.7:.1f},{top + 2:.1f} {x + flare:.1f},{top:.1f} Z")
+
+
+def drip_shine(x, top, length, width):
+    """Wet highlights for a drip: a thin streak down the neck and a glint on the drop."""
+    w = width / 2
+    bulb = w * 1.0
+    cy = top + length - bulb
+    return (f'<path d="M{x - w * 0.22:.1f},{top + length * 0.25:.1f} V{cy - bulb * 0.9:.1f}" '
+            f'stroke="#fff" stroke-width="{max(w * 0.28, 1):.1f}" stroke-linecap="round" opacity=".45" fill="none"/>'
+            f'<ellipse cx="{x - bulb * 0.35:.1f}" cy="{cy - bulb * 0.3:.1f}" rx="{bulb * 0.28:.1f}" '
+            f'ry="{bulb * 0.4:.1f}" fill="#fff" opacity=".7"/>')
 
 
 def overspray(rng, cx, cy, r_min, r_max, count, color):
@@ -102,15 +120,17 @@ def overspray(rng, cx, cy, r_min, r_max, count, color):
 
 # ---------------------------------------------------------------- icons
 def icon(label, paint, glyph, rng, bold=False, id_prefix="i"):
-    """A paint-splat icon in a 120x120 box: rough splat, drips, overspray,
+    """A paint-splat icon in a 120x120 box: rough splat, paint runs, overspray,
     and a white glyph with a black outline. `paint` is (light, mid, dark).
-    Pass bold=True for icons shown small (about 40px or less)."""
+    Pass bold=True for icons shown small (about 40px or less).
+
+    The splat and its runs are drawn as one shape: every outline first, then
+    every fill on top, so no line shows where a run leaves the splat."""
     outer, inner = (15, 8) if bold else (11, 5.5)
-    blob = splat(rng, 60, 56, 40)
-    drips = "".join(
-        f'<path d="{drip(x, 84, rng.uniform(18, 26), rng.uniform(6, 8))}"/>'
-        for x in rng.sample([42, 52, 66, 76], 2)
-    )
+    blob = splat(rng, 60, 54, 40)
+    runs = [(x, 76, rng.uniform(24, 36), rng.uniform(7, 9.5)) for x in sorted(rng.sample([40, 50, 62, 73, 80], 2))]
+    drips = "".join(f'<path d="{drip(*r)}"/>' for r in runs)
+    shine = "".join(drip_shine(*r) for r in runs)
     g, rough = f"{id_prefix}-g", f"{id_prefix}-rough"
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="{label}">
   <defs>
@@ -119,13 +139,20 @@ def icon(label, paint, glyph, rng, bold=False, id_prefix="i"):
       <stop offset=".55" stop-color="{paint[1]}"/>
       <stop offset="1" stop-color="{paint[2]}"/>
     </radialGradient>
+    <linearGradient id="{g}-run" x1="0" x2="0" y1="84" y2="116" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="{paint[2]}"/>
+      <stop offset=".7" stop-color="{paint[1]}"/>
+      <stop offset="1" stop-color="{paint[2]}"/>
+    </linearGradient>
     {ROUGH.replace('id="rough"', f'id="{rough}"')}
   </defs>
-  {overspray(rng, 60, 56, 42, 54, 38, paint[1])}
-  <g filter="url(#{rough})" fill="url(#{g})" stroke="#111" stroke-width="3.5" stroke-linejoin="round">
-    <path d="{blob}"/>
-    {drips}
+  {overspray(rng, 60, 54, 42, 54, 38, paint[1])}
+  <g fill="#111" stroke="#111" stroke-width="7" stroke-linejoin="round">
+    <path filter="url(#{rough})" d="{blob}"/>{drips}
   </g>
+  <g fill="url(#{g}-run)">{drips}</g>
+  <path filter="url(#{rough})" fill="url(#{g})" d="{blob}"/>
+  {shine}
   <g fill="none" stroke-linecap="round" stroke-linejoin="round">
     <g stroke="#111" stroke-width="{outer}">{glyph}</g>
     <g stroke="#fff" stroke-width="{inner}">{glyph}</g>

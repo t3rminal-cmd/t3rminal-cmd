@@ -17,7 +17,7 @@ import html
 import random
 from pathlib import Path
 
-from graffiti import COLORS, GLYPHS, PAINT, ROUGH, THEMES, drip, icon, load_font
+from graffiti import COLORS, GLYPHS, PAINT, THEMES, drip, drip_shine, icon, load_font
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "assets"
@@ -45,17 +45,24 @@ def headline(colors, spray, spray_adv, marker):
     size1 = 74
     rng = random.Random(42)
 
-    # Place drips under a few letters of each spray line, using real glyph widths.
-    drips = []
-    for line, base_y in ((LINE1, 150), (LINE2, 232)):
-        adv = spray_adv(line, size1)
-        x = (W - sum(adv)) / 2
-        for ch, a in zip(line, adv):
-            if ch.isalpha() and rng.random() < 0.3:
-                cx = x + a * rng.uniform(0.35, 0.65)
-                drips.append(drip(cx, base_y - 14, rng.uniform(22, 44), rng.uniform(10, 14)))
-            x += a
-    drip_paths = "".join(f'<path d="{d}"/>' for d in drips)
+    # Paint runs fall only from letters with a solid bottom edge, so a run
+    # never starts in the gap of an A, N or W. Runs start inside the letter
+    # (base_y - 9) so they look like they flow out of the paint.
+    solid_bottom = set("BCDEGIJLOSUZ")
+    # Only the bottom line drips: runs on the top line would hit the line below
+    # and short ones read as accents (Ş, Ç). A mix of long runs and short sags.
+    runs = []
+    adv = spray_adv(LINE2, size1)
+    x = (W - sum(adv)) / 2
+    for ch, a in zip(LINE2, adv):
+        if ch in solid_bottom and rng.random() < 0.6:
+            cx = x + a * rng.uniform(0.35, 0.65)
+            # Alternate long runs and short sags; lengths count from the baseline.
+            below = rng.uniform(26, 34) if len(runs) % 2 == 0 else rng.uniform(13, 18)
+            runs.append((cx, 232 - 9, 9 + below, rng.uniform(19, 23)))
+        x += a
+    drip_paths = "".join(f'<path d="{drip(*r)}"/>' for r in runs)
+    shine = "".join(drip_shine(*r) for r in runs)
     # The small tag sits just above the start of the first line.
     tag_x = (W - sum(spray_adv(LINE1, size1))) / 2 - 10
 
@@ -64,30 +71,32 @@ def headline(colors, spray, spray_adv, marker):
     <style>
       @font-face {{ font-family: 'Spray'; src: url({spray}) format('woff2'); }}
       @font-face {{ font-family: 'Marker'; src: url({marker}) format('woff2'); }}
-      .spray {{ font: {size1}px 'Spray', Impact, sans-serif; text-anchor: middle;
-               fill: url(#paint); stroke: {colors['outline']}; stroke-width: 6px;
-               paint-order: stroke; stroke-linejoin: round; }}
+      .spray {{ font: {size1}px 'Spray', Impact, sans-serif; text-anchor: middle; }}
+      .ink {{ fill: {colors['outline']}; stroke: {colors['outline']}; stroke-width: 6px; stroke-linejoin: round; }}
       .tag {{ font: 34px 'Marker', 'Comic Sans MS', cursive; fill: {colors['tag']}; }}
       .sub {{ font: 30px 'Marker', 'Comic Sans MS', cursive; fill: {colors['text']};
               text-anchor: middle; }}
     </style>
-    <linearGradient id="paint" x1="0" x2="1" y1="0" y2="0">
-      <stop offset="0" stop-color="{PAINT[0]}"/>
-      <stop offset=".5" stop-color="{PAINT[1]}"/>
-      <stop offset="1" stop-color="{PAINT[2]}"/>
-    </linearGradient>
     <linearGradient id="dripPaint" x1="0" x2="{W}" y1="0" y2="0" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="{PAINT[0]}"/>
       <stop offset=".5" stop-color="{PAINT[1]}"/>
       <stop offset="1" stop-color="{PAINT[2]}"/>
     </linearGradient>
-    {ROUGH}
   </defs>
   <rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="12" fill="{colors['wall']}" stroke="{colors['border']}"/>
-  <g fill="url(#dripPaint)" stroke="{colors['outline']}" stroke-width="3" filter="url(#rough)">{drip_paths}</g>
+  <!-- Outlines of letters and runs first, then all fills on top: one silhouette, no seams. -->
+  <g class="ink">
+    <text class="spray" x="{W / 2}" y="150">{LINE1}</text>
+    <text class="spray" x="{W / 2}" y="232">{html.escape(LINE2)}</text>
+    {drip_paths}
+  </g>
+  <g fill="url(#dripPaint)">
+    {drip_paths}
+    <text class="spray" x="{W / 2}" y="150">{LINE1}</text>
+    <text class="spray" x="{W / 2}" y="232">{html.escape(LINE2)}</text>
+  </g>
+  {shine}
   <text class="tag" x="{tag_x:.0f}" y="72" transform="rotate(-6 {tag_x:.0f} 72)">{TAG}</text>
-  <text class="spray" x="{W / 2}" y="150">{LINE1}</text>
-  <text class="spray" x="{W / 2}" y="232">{html.escape(LINE2)}</text>
   <text class="sub" x="{W / 2}" y="296" transform="rotate(-1.5 {W / 2} 296)">{SUB}</text>
 </svg>
 """
