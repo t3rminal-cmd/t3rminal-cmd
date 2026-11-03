@@ -4,7 +4,8 @@ Writes contrib-ticker-dark.svg and contrib-ticker-light.svg. contrib_graph.py
 calls render() with the same data it uses for the heatmap, so the two charts
 always agree. The chart shows:
 
-  - weekly contributions as a glowing line over a gradient area, drawn in
+  - contributions as a glowing line over a gradient area (daily while the
+    history is short, weekly once it spans more than ~4 months), drawn in
     when the image loads, with the newest week pulsing at the end
   - the 4-week moving average as a dashed line
   - "volume" bars along the bottom: active days in each week
@@ -49,8 +50,9 @@ def weekly(days):
     return [(s, c, a) for s, (c, a) in sorted(weeks.items())]
 
 
-def smooth_path(pts):
-    """Catmull-Rom spline through the points, as cubic Beziers."""
+def smooth_path(pts, floor=None):
+    """Catmull-Rom spline through the points, as cubic Beziers. Control points
+    are kept above `floor` (the zero line) so the curve never dips below 0."""
     d = f"M{pts[0][0]:.1f},{pts[0][1]:.1f}"
     for i in range(len(pts) - 1):
         p0 = pts[max(i - 1, 0)]
@@ -58,6 +60,8 @@ def smooth_path(pts):
         p3 = pts[min(i + 2, len(pts) - 1)]
         c1 = (p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6)
         c2 = (p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6)
+        if floor is not None:
+            c1, c2 = (c1[0], min(c1[1], floor)), (c2[0], min(c2[1], floor))
         d += f" C{c1[0]:.1f},{c1[1]:.1f} {c2[0]:.1f},{c2[1]:.1f} {p2[0]:.1f},{p2[1]:.1f}"
     return d
 
@@ -72,11 +76,31 @@ def nice_max(v):
     return 40 * mag
 
 
+def day_count(count, level):
+    return count if count is not None else (level * 2 if level else 0)  # rough stand-in if counts are hidden
+
+
+def series(days):
+    """Pick what to plot. The chart starts two weeks before the first
+    contribution in the year, so a short history isn't a long flat line. If
+    that span is under ~4 months, plot daily values (more peaks, more like a
+    stock chart); otherwise weekly totals. Returns (unit, [(date, value, vol 0-1)])."""
+    first = next((i for i, (_, c, l) in enumerate(days) if day_count(c, l) > 0), 0)
+    days = days[max(0, first - 14):]
+    if len(days) <= 120:
+        vals = [day_count(c, l) for _, c, l in days]
+        hi = max(vals) or 1
+        return "day", [(datetime.date.fromisoformat(d), v, v / hi) for (d, _, _), v in zip(days, vals)]
+    return "wk", [(s, c, a / 7) for s, c, a in weekly(days)]
+
+
 def render(days, theme, user="t3rminal-cmd"):
     t = THEMES[theme]
+    unit, pts_data = series(days)
+    counts = [v for _, v, _ in pts_data]
+    n = len(pts_data)
+    daily = unit == "day"
     wk = weekly(days)
-    counts = [c for _, c, _ in wk]
-    n = len(wk)
     top = nice_max(max(counts) * 1.15 if counts else 5)
 
     pw = W - PL - PR
@@ -87,21 +111,25 @@ def render(days, theme, user="t3rminal-cmd"):
         return PT + ph - v / top * ph
 
     pts = [(xs[i], y(c)) for i, c in enumerate(counts)]
-    line = smooth_path(pts)
+    line = smooth_path(pts, PT + ph)
     area = f"{line} L{xs[-1]:.1f},{PT + ph} L{xs[0]:.1f},{PT + ph} Z"
 
-    ma = [sum(counts[max(0, i - 3):i + 1]) / len(counts[max(0, i - 3):i + 1]) for i in range(n)]
-    ma_path = smooth_path([(xs[i], y(v)) for i, v in enumerate(ma)])
+    span = 7 if daily else 4  # moving average: 7 days or 4 weeks
+    ma = [sum(counts[max(0, i - span + 1):i + 1]) / len(counts[max(0, i - span + 1):i + 1]) for i in range(n)]
+    ma_path = smooth_path([(xs[i], y(v)) for i, v in enumerate(ma)], PT + ph)
 
-    # Ticker header: last 4 weeks vs the 4 before.
-    now, before = sum(counts[-4:]), sum(counts[-8:-4])
+    # Ticker header: last 4 weeks vs the 4 before (from daily data either way).
+    all_counts = [day_count(c, l) for _, c, l in days]
+    now, before = sum(all_counts[-28:]), sum(all_counts[-56:-28])
     diff = now - before
     pct = (diff / before * 100) if before else (100.0 if now else 0.0)
     up = diff >= 0
     move_col = t["up"] if up else t["down"]
     arrow = "▲" if up else "▼"
-    total = sum(counts)
+    total = sum(all_counts)
     hi = max(counts)
+    wk_counts = [c for _, c, _ in wk]
+    best_wk = max(wk_counts) if wk_counts else 0
 
     # Grid and price axis
     grid = []
@@ -112,33 +140,38 @@ def render(days, theme, user="t3rminal-cmd"):
                     f'stroke-dasharray="{"none" if k == 0 else "3 5"}"/>'
                     f'<text class="ax" x="{W - PR + 10}" y="{gy + 4:.1f}">{v:g}</text>')
 
-    # Month labels under the first week of each month
+    # Date labels along the bottom: months for a weekly chart, every other Monday for a daily one
     months, last = [], None
-    for i, (s, _, _) in enumerate(wk):
-        if s.month != last and 0 < i < n - 2:
+    for i, (s, _, _) in enumerate(pts_data):
+        if daily:
+            if s.weekday() == 0 and s.isocalendar()[1] % 2 == 0 and 2 < i < n - 3:
+                months.append(f'<text class="ax" x="{xs[i]:.1f}" y="{H - 22}" text-anchor="middle">{s.strftime("%b %-d")}</text>')
+        elif s.month != last and 0 < i < n - 2:
             months.append(f'<text class="ax" x="{xs[i]:.1f}" y="{H - 22}" text-anchor="middle">{s.strftime("%b")}</text>')
         last = s.month
 
-    # Volume bars: active days per week (0-7)
+    # Volume bars: active days per week, or each day's share of the busiest day
     vol_base = H - 42
     bw = pw / n * 0.62
     vol = "".join(
-        f'<rect x="{xs[i] - bw / 2:.1f}" y="{vol_base - a / 7 * VOL_H:.1f}" width="{bw:.1f}" '
-        f'height="{a / 7 * VOL_H:.1f}" rx="1.5" fill="{PAINT[1] if a >= 5 else t["vol"]}" '
-        f'opacity="{.55 if a >= 5 else 1}"/>'
-        for i, (_, _, a) in enumerate(wk))
+        f'<rect x="{xs[i] - bw / 2:.1f}" y="{vol_base - a * VOL_H:.1f}" width="{bw:.1f}" '
+        f'height="{a * VOL_H:.1f}" rx="1.5" fill="{PAINT[1] if a >= .6 else t["vol"]}" '
+        f'opacity="{.6 if a >= .6 else 1}"/>'
+        for i, (_, _, a) in enumerate(pts_data))
 
-    # Peaks: the three biggest weeks, kept at least 6 weeks apart
+    # Peaks: the three biggest points, kept apart so the flags don't collide
+    gap = 5 if daily else 6
     peaks = []
     for i in sorted(range(n), key=lambda i: -counts[i]):
-        if counts[i] and all(abs(i - j) >= 6 for j in peaks) and 1 <= i <= n - 2:
+        if counts[i] and all(abs(i - j) >= gap for j in peaks) and 1 <= i <= n - 2:
             peaks.append(i)
         if len(peaks) == 3:
             break
     flags = []
     for k, i in enumerate(sorted(peaks)):
         px, py = pts[i]
-        label = f"▲ {counts[i]} · wk of {wk[i][0].strftime('%b %-d')}"
+        when = pts_data[i][0].strftime('%b %-d')
+        label = f"▲ {counts[i]} · {when}" if daily else f"▲ {counts[i]} · wk of {when}"
         lw = len(label) * 7.4 + 16
         lx = min(max(px - lw / 2, PL), W - PR - lw)
         ly = max(py - 40, PT - 34)
@@ -151,8 +184,9 @@ def render(days, theme, user="t3rminal-cmd"):
 
     ex, ey = pts[-1]
     tag_y = min(max(ey, PT + 10), PT + ph - 10)
-    first, last_day = wk[0][0], datetime.date.fromisoformat(days[-1][0])
-    label = (f"{user} weekly contributions, {first:%b %Y} to {last_day:%b %Y}: {total} total, best week {hi}. "
+    first, last_day = pts_data[0][0], datetime.date.fromisoformat(days[-1][0])
+    per = "day" if daily else "week"
+    label = (f"{user} contributions per {per}, {first:%b %-d %Y} to {last_day:%b %-d %Y}: {total} in the last year, best {per} {hi}. "
              f"Last 4 weeks {now} vs {before} the 4 weeks before ({'+' if up else ''}{pct:.0f}%).")
 
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="{html.escape(label)}">
@@ -205,7 +239,7 @@ def render(days, theme, user="t3rminal-cmd"):
   <g transform="translate({PL},0)">
     <rect y="22" width="62" height="24" rx="6" fill="url(#ln)"/>
     <text x="31" y="39" text-anchor="middle" style="font-size:13px;font-weight:800;fill:#0d1117">T3RM</text>
-    <text class="nm" x="74" y="39">{html.escape(user)} · contributions / week</text>
+    <text class="nm" x="74" y="39">{html.escape(user)} · contributions / {per} · since {first:%b %-d, %Y}</text>
     <circle class="live" cx="{W - PL - PR - 52}" cy="34" r="4" fill="{t['up']}"/>
     <text class="nm" x="{W - PL - PR - 42}" y="39">LIVE</text>
     <text class="px" x="0" y="88">{now}</text>
@@ -214,8 +248,8 @@ def render(days, theme, user="t3rminal-cmd"):
   </g>
   <g transform="translate({W - PR - 330},60)">
     <text class="kv" x="0" y="0">1Y TOTAL</text><text class="kn" x="0" y="22">{total}</text>
-    <text class="kv" x="110" y="0">HIGH</text><text class="kn" x="110" y="22">{hi}</text>
-    <text class="kv" x="190" y="0">AVG / WK</text><text class="kn" x="190" y="22">{total / n:.1f}</text>
+    <text class="kv" x="110" y="0">BEST {"DAY" if daily else "WK"}</text><text class="kn" x="110" y="22">{hi}</text>
+    <text class="kv" x="210" y="0">{"BEST WK" if daily else "ACTIVE WKS"}</text><text class="kn" x="210" y="22">{best_wk if daily else sum(1 for c in wk_counts if c)}</text>
   </g>
 
   {"".join(grid)}
@@ -236,8 +270,8 @@ def render(days, theme, user="t3rminal-cmd"):
     <text x="{W - PR + 26}" y="{tag_y + 4:.1f}" text-anchor="middle" style="font-size:12px;font-weight:800;fill:#fff">{counts[-1]}</text>
   </g>
   <g transform="translate({W - PR - 268},{PT - 12})">
-    <line x1="0" y1="-4" x2="22" y2="-4" stroke="url(#ln)" stroke-width="3"/><text class="ax" x="28" y="0">weekly</text>
-    <line x1="96" y1="-4" x2="118" y2="-4" stroke="{t['muted']}" stroke-width="1.4" stroke-dasharray="5 5"/><text class="ax" x="124" y="0">4-wk avg</text>
+    <line x1="0" y1="-4" x2="22" y2="-4" stroke="url(#ln)" stroke-width="3"/><text class="ax" x="28" y="0">{"daily" if daily else "weekly"}</text>
+    <line x1="96" y1="-4" x2="118" y2="-4" stroke="{t['muted']}" stroke-width="1.4" stroke-dasharray="5 5"/><text class="ax" x="124" y="0">{"7-day" if daily else "4-wk"} avg</text>
     <circle cx="210" cy="-4" r="4" fill="{t['bg']}" stroke="{PAINT[2]}" stroke-width="2"/><text class="ax" x="220" y="0">peak</text>
   </g>
 </svg>

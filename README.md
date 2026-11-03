@@ -102,15 +102,18 @@
 
 <hr>
 
-<!-- CONNECT (keycaps are made by scripts/make_connect.py; they press themselves in a loop) -->
+<!-- CONNECT (icons are made by scripts/make_connect.py) -->
 <h3 align="center">Connect with me:</h3>
 
 <p align="center">
-  <a href="mailto:S3cureTangoDown@proton.me" title="Email me">
-    <img height="120" src="assets/key-email.svg?v=1" alt="Email" /></a>&nbsp;&nbsp;
-  <a href="https://t3rminal-cmd.github.io/Portfolio-Bootstrap/" title="My portfolio">
-    <img height="120" src="assets/key-portfolio.svg?v=1" alt="Portfolio" /></a>&nbsp;&nbsp;
-  <a href="https://www.instagram.com/t3rminal_cmd/" title="Instagram">
-    <img height="120" src="assets/key-instagram.svg?v=1" alt="Instagram" /></a>
+  <a href="mailto:S3cureTangoDown@proton.me" title="Email me"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/connect-email-dark.svg" />
+    <img height="56" src="assets/connect-email-light.svg" alt="Email" /></picture></a>&nbsp;&nbsp;
+  <a href="https://t3rminal-cmd.github.io/Portfolio-Bootstrap/" title="My portfolio"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/connect-portfolio-dark.svg" />
+    <img height="56" src="assets/connect-portfolio-light.svg" alt="Portfolio" /></picture></a>&nbsp;&nbsp;
+  <a href="https://www.instagram.com/t3rminal_cmd/" title="Instagram"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/connect-instagram-dark.svg" />
+    <img height="56" src="assets/connect-instagram-light.svg" alt="Instagram" /></picture></a>
 </p>
 
