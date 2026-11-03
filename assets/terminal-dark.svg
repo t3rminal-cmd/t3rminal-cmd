@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 288" width="1000" height="288" role="img" aria-label="ls ~/projects: casevault/  portfolio/  t3rminal-cmd/. cat ~/now.txt: shipping CaseVault v1.180 · offline case files + local AI. echo $STACK: HTML · CSS · JavaScript · Python · PWAs · Ollama">
+  <style>
+    .bar { font: 500 13px 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #8b949e; }
+    .prompt { font: 700 17px 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #1bc830; }
+    .cmd { font: 600 17px 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #e6edf3; }
+    .out { font: 400 16px 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .show { opacity: 0; animation: show .01s forwards; }
+    @keyframes show { to { opacity: 1 } }
+    .type { animation-name: type; animation-fill-mode: both; }
+    @keyframes type { from { transform: translateX(0) } to { transform: translateX(100%); opacity: 0 } }
+    .type { transform-box: fill-box; }
+    .cursor { fill: #1bc830; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0 } }
+    @media (prefers-reduced-motion: reduce) {
+      .show { animation: none; opacity: 1; }
+      .type { display: none; }
+      .cursor { animation: none; }
+    }
+  </style>
+  <rect x="1" y="1" width="998" height="286" rx="12" fill="#161b22" stroke="#30363d"/>
+  <path d="M1,13 A12,12 0 0 1 13,1 H987 A12,12 0 0 1 999,13 V44 H1 Z" fill="#0d1117"/>
+  <line x1="1" y1="44" x2="999" y2="44" stroke="#30363d"/>
+  <circle cx="24" cy="22" r="5.5" fill="#1bc830"/><circle cx="42" cy="22" r="5.5" fill="#00d4ff"/><circle cx="60" cy="22" r="5.5" fill="#ff2e88"/>
+  <text class="bar" x="500.0" y="27" text-anchor="middle">t3rminal-cmd@github: ~</text>
+  <g class="show" style="animation-delay:0.40s">
+      <text class="prompt" x="32" y="82">~ $</text>
+      <text class="cmd" x="76" y="82">ls ~/projects</text>
+      <rect class="type" x="74" y="62" width="146" height="28" fill="#161b22"
+            style="animation-delay:0.70s;animation-duration:0.91s;animation-timing-function:steps(13)"/>
+    </g><text class="show out" x="32" y="112" fill="#00d4ff" style="animation-delay:1.86s">casevault/  portfolio/  t3rminal-cmd/</text><g class="show" style="animation-delay:2.41s">
+      <text class="prompt" x="32" y="142">~ $</text>
+      <text class="cmd" x="76" y="142">cat ~/now.txt</text>
+      <rect class="type" x="74" y="122" width="146" height="28" fill="#161b22"
+            style="animation-delay:2.71s;animation-duration:0.91s;animation-timing-function:steps(13)"/>
+    </g><text class="show out" x="32" y="172" fill="#e6edf3" style="animation-delay:3.87s">shipping CaseVault v1.180 · offline case files + local AI</text><g class="show" style="animation-delay:4.42s">
+      <text class="prompt" x="32" y="202">~ $</text>
+      <text class="cmd" x="76" y="202">echo $STACK</text>
+      <rect class="type" x="74" y="182" width="125" height="28" fill="#161b22"
+            style="animation-delay:4.72s;animation-duration:0.77s;animation-timing-function:steps(11)"/>
+    </g><text class="show out" x="32" y="232" fill="#e6edf3" style="animation-delay:5.74s">HTML · CSS · JavaScript · Python · PWAs · Ollama</text><g class="show" style="animation-delay:6.29s">
+      <text class="prompt" x="32" y="262">~ $</text>
+      <rect class="cursor" x="77" y="245" width="10" height="21"/>
+    </g>
+</svg>

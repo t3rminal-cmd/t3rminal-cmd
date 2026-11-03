@@ -52,7 +52,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: username=t3rminal-cmd&show_icons=true&locale=en
+          options: username=t3rminal-cmd&show_icons=true&locale=en&card_width=440&title_color=1a7f37&icon_color=bf3989&text_color=1f2328&bg_color=ffffff&border_color=d0d7de&border_radius=12
           path: dist/stats.svg
           token: ${{ secrets.CONTRIB_TOKEN || secrets.GITHUB_TOKEN }}
 
@@ -60,16 +60,17 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
-          options: username=t3rminal-cmd&layout=compact&locale=en
+          options: username=t3rminal-cmd&layout=compact&locale=en&card_width=440&langs_count=8&title_color=1a7f37&icon_color=bf3989&text_color=1f2328&bg_color=ffffff&border_color=d0d7de&border_radius=12
           path: dist/top-langs.svg
           token: ${{ secrets.CONTRIB_TOKEN || secrets.GITHUB_TOKEN }}
 
+      # Colours match the banner and project cards (scripts/graffiti.py THEMES).
       # Dark versions, shown to people using GitHub's dark theme
       - name: Generate stats card (dark)
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: username=t3rminal-cmd&show_icons=true&locale=en&theme=github_dark&hide_border=true
+          options: username=t3rminal-cmd&show_icons=true&locale=en&card_width=440&title_color=1bc830&icon_color=ff2e88&text_color=e6edf3&bg_color=161b22&border_color=30363d&border_radius=12
           path: dist/stats-dark.svg
           token: ${{ secrets.CONTRIB_TOKEN || secrets.GITHUB_TOKEN }}
 
@@ -77,7 +78,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
-          options: username=t3rminal-cmd&layout=compact&locale=en&theme=github_dark&hide_border=true
+          options: username=t3rminal-cmd&layout=compact&locale=en&card_width=440&langs_count=8&title_color=1bc830&icon_color=ff2e88&text_color=e6edf3&bg_color=161b22&border_color=30363d&border_radius=12
           path: dist/top-langs-dark.svg
           token: ${{ secrets.CONTRIB_TOKEN || secrets.GITHUB_TOKEN }}
 
