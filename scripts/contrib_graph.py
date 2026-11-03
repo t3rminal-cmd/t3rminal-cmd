@@ -227,6 +227,11 @@ def main():
     for theme in THEMES:
         (out / f"contrib-{theme}.svg").write_text(render(days, stats, theme, user), encoding="utf-8")
     print(f"Wrote contrib-dark.svg and contrib-light.svg: {stats}")
+    # The stock-style trend chart, from the same data.
+    from contrib_ticker import render as render_ticker
+    for theme in THEMES:
+        (out / f"contrib-ticker-{theme}.svg").write_text(render_ticker(days, theme, user), encoding="utf-8")
+    print("Wrote contrib-ticker-dark.svg and contrib-ticker-light.svg")
 
 
 if __name__ == "__main__":

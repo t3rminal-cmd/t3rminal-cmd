@@ -87,7 +87,7 @@ jobs:
       - name: Restore the last contribution chart
         run: |
           if git fetch --depth=1 origin output; then
-            for f in contrib-dark.svg contrib-light.svg; do
+            for f in contrib-dark.svg contrib-light.svg contrib-ticker-dark.svg contrib-ticker-light.svg; do
               git show FETCH_HEAD:$f > dist/$f 2>/dev/null || rm -f dist/$f
             done
           fi

@@ -90,17 +90,27 @@
   </picture>
 </p>
 
+<!-- CONTRIBUTION TREND (stock-style weekly chart, built by scripts/contrib_ticker.py from the same data) -->
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/contrib-ticker-dark.svg" />
+    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/contrib-ticker-light.svg"
+      alt="t3rminal-cmd weekly contributions over the last year, drawn like a stock chart" width="100%" />
+  </picture>
+</p>
+
 <hr>
 
-<!-- CONNECT (icons are made by scripts/make_graffiti.py) -->
+<!-- CONNECT (keycaps are made by scripts/make_connect.py; they press themselves in a loop) -->
 <h3 align="center">Connect with me:</h3>
 
 <p align="center">
   <a href="mailto:S3cureTangoDown@proton.me" title="Email me">
-    <img height="72" src="assets/icon-email.svg?v=3" alt="Email" /></a>&nbsp;&nbsp;
+    <img height="120" src="assets/key-email.svg?v=1" alt="Email" /></a>&nbsp;&nbsp;
   <a href="https://t3rminal-cmd.github.io/Portfolio-Bootstrap/" title="My portfolio">
-    <img height="72" src="assets/icon-portfolio.svg?v=3" alt="Portfolio" /></a>&nbsp;&nbsp;
+    <img height="120" src="assets/key-portfolio.svg?v=1" alt="Portfolio" /></a>&nbsp;&nbsp;
   <a href="https://www.instagram.com/t3rminal_cmd/" title="Instagram">
-    <img height="72" src="assets/icon-instagram.svg?v=3" alt="Instagram" /></a>
+    <img height="120" src="assets/key-instagram.svg?v=1" alt="Instagram" /></a>
 </p>
 
