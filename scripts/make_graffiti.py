@@ -17,7 +17,7 @@ import html
 import random
 from pathlib import Path
 
-from graffiti import COLORS, GLYPHS, PAINT, THEMES, drip, drip_shine, icon, load_font
+from graffiti import COLORS, GLYPHS, PAINT, THEMES, drip, drip_shine, icon, load_font, overspray
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "assets"
@@ -63,6 +63,9 @@ def headline(colors, spray, spray_adv, marker):
         x += a
     drip_paths = "".join(f'<path d="{drip(*r)}"/>' for r in runs)
     shine = "".join(drip_shine(*r) for r in runs)
+    mist_rng = random.Random(7)
+    mist = "".join(overspray(mist_rng, cx, cy, 30, 70, 14, PAINT[k])
+                   for k, cx in enumerate((300, 500, 700)) for cy in (120, 205))
     # The small tag sits just above the start of the first line.
     tag_x = (W - sum(spray_adv(LINE1, size1))) / 2 - 10
 
@@ -82,10 +85,29 @@ def headline(colors, spray, spray_adv, marker):
       <stop offset=".5" stop-color="{PAINT[1]}"/>
       <stop offset="1" stop-color="{PAINT[2]}"/>
     </linearGradient>
+    <filter id="glow" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+    <filter id="shadow" x="-5%" y="-10%" width="110%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="3" flood-color="#000" flood-opacity=".35"/>
+    </filter>
+    <!-- Gloss on the upper half of each line, shade on the lower edge: gives the paint depth. -->
+    <linearGradient id="gloss1" x1="0" x2="0" y1="96" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".75" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/>
+    </linearGradient>
+    <linearGradient id="gloss2" x1="0" x2="0" y1="178" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".75" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/>
+    </linearGradient>
   </defs>
   <rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="12" fill="{colors['wall']}" stroke="{colors['border']}"/>
+  <!-- Soft colour glow and overspray behind the paint -->
+  <g fill="url(#dripPaint)" opacity=".45" filter="url(#glow)">
+    <text class="spray" x="{W / 2}" y="150">{LINE1}</text>
+    <text class="spray" x="{W / 2}" y="232">{html.escape(LINE2)}</text>
+  </g>
+  {mist}
   <!-- Outlines of letters and runs first, then all fills on top: one silhouette, no seams. -->
-  <g class="ink">
+  <g class="ink" filter="url(#shadow)">
     <text class="spray" x="{W / 2}" y="150">{LINE1}</text>
     <text class="spray" x="{W / 2}" y="232">{html.escape(LINE2)}</text>
     {drip_paths}
@@ -95,6 +117,8 @@ def headline(colors, spray, spray_adv, marker):
     <text class="spray" x="{W / 2}" y="150">{LINE1}</text>
     <text class="spray" x="{W / 2}" y="232">{html.escape(LINE2)}</text>
   </g>
+  <text class="spray" x="{W / 2}" y="150" fill="url(#gloss1)">{LINE1}</text>
+  <text class="spray" x="{W / 2}" y="232" fill="url(#gloss2)">{html.escape(LINE2)}</text>
   {shine}
   <text class="tag" x="{tag_x:.0f}" y="72" transform="rotate(-6 {tag_x:.0f} 72)">{TAG}</text>
   <text class="sub" x="{W / 2}" y="296" transform="rotate(-1.5 {W / 2} 296)">{SUB}</text>
