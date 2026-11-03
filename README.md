@@ -12,10 +12,11 @@
 
 <br>
 
-<!-- HEADLINE (regenerate with: python3 scripts/make_graffiti.py) -->
+<!-- HEADLINE (regenerate with: python3 scripts/make_graffiti.py).
+     "?v=3" on the headline and icons makes GitHub fetch new art instead of a cached copy; bump it after a redesign. -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/headline-dark.svg" />
-  <img src="assets/headline-light.svg"
+  <source media="(prefers-color-scheme: dark)" srcset="assets/headline-dark.svg?v=3" />
+  <img src="assets/headline-light.svg?v=3"
     alt="An amateur web designer and developer. Veteran, runner, foodie." width="100%" />
 </picture>
 
@@ -30,17 +31,17 @@
 <div align="center">
   <table>
     <tr>
-      <td><img src="assets/icon-working.svg" width="48" alt="" /></td>
+      <td><img src="assets/icon-working.svg?v=3" width="48" alt="" /></td>
       <td align="left"><b>Working on</b></td>
       <td align="left"><a href="https://github.com/t3rminal-cmd/casevault">CaseVault</a> — offline case files + local AI</td>
     </tr>
     <tr>
-      <td><img src="assets/icon-learning.svg" width="48" alt="" /></td>
+      <td><img src="assets/icon-learning.svg?v=3" width="48" alt="" /></td>
       <td align="left"><b>Learning</b></td>
       <td align="left">HTML · CSS · JavaScript · Python</td>
     </tr>
     <tr>
-      <td><img src="assets/icon-ask.svg" width="48" alt="" /></td>
+      <td><img src="assets/icon-ask.svg?v=3" width="48" alt="" /></td>
       <td align="left"><b>Ask me about</b></td>
       <td align="left">Coffee, snowboarding or C4 energy drinks</td>
     </tr>
@@ -52,8 +53,8 @@
      design change doesn't show up. Daily fact changes don't need it. -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-dark.svg?v=2" />
-    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-light.svg?v=2" alt="Fun fact of the day" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-dark.svg?v=3" />
+    <img src="https://raw.githubusercontent.com/t3rminal-cmd/t3rminal-cmd/output/fun-fact-light.svg?v=3" alt="Fun fact of the day" />
   </picture>
 </p>
 
@@ -112,10 +113,10 @@
 
 <p align="center">
   <a href="mailto:S3cureTangoDown@proton.me" title="Email me">
-    <img height="72" src="assets/icon-email.svg" alt="Email" /></a>&nbsp;&nbsp;
+    <img height="72" src="assets/icon-email.svg?v=3" alt="Email" /></a>&nbsp;&nbsp;
   <a href="https://t3rminal-cmd.github.io/Portfolio-Bootstrap/" title="My portfolio">
-    <img height="72" src="assets/icon-portfolio.svg" alt="Portfolio" /></a>&nbsp;&nbsp;
+    <img height="72" src="assets/icon-portfolio.svg?v=3" alt="Portfolio" /></a>&nbsp;&nbsp;
   <a href="https://www.instagram.com/t3rminal_cmd/" title="Instagram">
-    <img height="72" src="assets/icon-instagram.svg" alt="Instagram" /></a>
+    <img height="72" src="assets/icon-instagram.svg?v=3" alt="Instagram" /></a>
 </p>
 

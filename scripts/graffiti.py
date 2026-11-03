@@ -120,40 +120,51 @@ def overspray(rng, cx, cy, r_min, r_max, count, color):
 
 # ---------------------------------------------------------------- icons
 def icon(label, paint, glyph, rng, bold=False, id_prefix="i"):
-    """A paint-splat icon in a 120x120 box: rough splat, paint runs, overspray,
-    and a white glyph with a black outline. `paint` is (light, mid, dark).
+    """A 3D spray-paint icon in a 120x120 box: a glossy paint blob with a soft
+    colour glow, overspray, a drop shadow, glossy paint runs, and a white glyph
+    with a black outline. `paint` is (light, mid, dark).
     Pass bold=True for icons shown small (about 40px or less).
 
-    The splat and its runs are drawn as one shape: every outline first, then
-    every fill on top, so no line shows where a run leaves the splat."""
-    outer, inner = (15, 8) if bold else (11, 5.5)
-    blob = splat(rng, 60, 54, 40)
-    runs = [(x, 76, rng.uniform(24, 36), rng.uniform(7, 9.5)) for x in sorted(rng.sample([40, 50, 62, 73, 80], 2))]
+    The blob and its runs are drawn as one shape: every outline first, then
+    every fill on top, so no line shows where a run leaves the blob. All ids
+    carry id_prefix because the fun fact card nests an icon inline."""
+    outer, inner = (14, 7.5) if bold else (12, 6)
+    p = id_prefix
+    blob = splat(rng, 60, 54, 38, bumps=12, wobble=0.1)
+    runs = [(x, 76, rng.uniform(24, 34), rng.uniform(8, 10)) for x in sorted(rng.sample([42, 52, 64, 74], 2))]
     drips = "".join(f'<path d="{drip(*r)}"/>' for r in runs)
     shine = "".join(drip_shine(*r) for r in runs)
-    g, rough = f"{id_prefix}-g", f"{id_prefix}-rough"
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="{label}">
   <defs>
-    <radialGradient id="{g}" cx=".35" cy=".3" r=".8">
+    <radialGradient id="{p}-f" cx=".38" cy=".3" r=".75">
       <stop offset="0" stop-color="{paint[0]}"/>
-      <stop offset=".55" stop-color="{paint[1]}"/>
+      <stop offset=".5" stop-color="{paint[1]}"/>
       <stop offset="1" stop-color="{paint[2]}"/>
     </radialGradient>
-    <linearGradient id="{g}-run" x1="0" x2="0" y1="84" y2="116" gradientUnits="userSpaceOnUse">
+    <linearGradient id="{p}-run" x1="0" x2="0" y1="80" y2="114" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="{paint[2]}"/>
       <stop offset=".7" stop-color="{paint[1]}"/>
       <stop offset="1" stop-color="{paint[2]}"/>
     </linearGradient>
-    {ROUGH.replace('id="rough"', f'id="{rough}"')}
+    <radialGradient id="{p}-halo">
+      <stop offset=".55" stop-color="{paint[1]}" stop-opacity=".45"/>
+      <stop offset="1" stop-color="{paint[1]}" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="{p}-soft"><feGaussianBlur stdDeviation="1.2"/></filter>
+    <filter id="{p}-sh" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="3" stdDeviation="2" flood-opacity=".3"/>
+    </filter>
   </defs>
-  {overspray(rng, 60, 54, 42, 54, 38, paint[1])}
-  <g fill="#111" stroke="#111" stroke-width="7" stroke-linejoin="round">
-    <path filter="url(#{rough})" d="{blob}"/>{drips}
+  <circle cx="60" cy="56" r="54" fill="url(#{p}-halo)"/>
+  {overspray(rng, 60, 54, 40, 56, 30, paint[1])}
+  <g filter="url(#{p}-sh)">
+    <g fill="#111" stroke="#111" stroke-width="6" stroke-linejoin="round"><path d="{blob}"/>{drips}</g>
+    <g fill="url(#{p}-run)">{drips}</g>
+    <path d="{blob}" fill="url(#{p}-f)"/>
   </g>
-  <g fill="url(#{g}-run)">{drips}</g>
-  <path filter="url(#{rough})" fill="url(#{g})" d="{blob}"/>
+  <ellipse cx="46" cy="32" rx="14" ry="7" fill="#fff" opacity=".45" filter="url(#{p}-soft)" transform="rotate(-25 46 32)"/>
   {shine}
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(60 56) scale(.9) translate(-60 -58)">
     <g stroke="#111" stroke-width="{outer}">{glyph}</g>
     <g stroke="#fff" stroke-width="{inner}">{glyph}</g>
   </g>
