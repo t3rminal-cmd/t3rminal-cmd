@@ -71,7 +71,7 @@ def nice_max(v):
     raw = max(v, 4) / 4
     mag = 10 ** math.floor(math.log10(raw))
     for m in (1, 1.5, 2, 3, 5, 10):
-        if raw <= m * mag:
+        if raw <= m * mag and (m * mag) % 1 == 0:  # whole-number steps only
             return 4 * m * mag
     return 40 * mag
 
