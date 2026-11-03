@@ -26,9 +26,9 @@ FONT = "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospa
 PAINT = ["#1bc830", "#00d4ff", "#ff2e88"]  # same spray colours as the rest of the README
 THEMES = {
     "dark": {"bg": "#0d1117", "panel": "#161b22", "border": "#30363d", "grid": "#21262d",
-             "text": "#e6edf3", "muted": "#8b949e", "up": "#1bc830", "down": "#ff2e88", "vol": "#30363d"},
+             "text": "#e6edf3", "muted": "#8b949e", "up": "#1bc830", "down": "#ff2e88", "vol": "#30363d", "navy": "#3a5bd0"},
     "light": {"bg": "#ffffff", "panel": "#f6f8fa", "border": "#d0d7de", "grid": "#eaeef2",
-              "text": "#1f2328", "muted": "#59636e", "up": "#1a7f37", "down": "#cf2273", "vol": "#d0d7de"},
+              "text": "#1f2328", "muted": "#59636e", "up": "#1a7f37", "down": "#cf2273", "vol": "#d0d7de", "navy": "#1e3a8a"},
 }
 
 W, H = 1000, 420
@@ -67,10 +67,10 @@ def smooth_path(pts, floor=None):
 
 
 def nice_max(v):
-    """Smallest 4 x step >= v, with a round step (1, 2, 5, 10, 20, 50...)."""
+    """Smallest 4 x step >= v, with a round step (1, 1.5, 2, 3, 5, 10, 15, 20...)."""
     raw = max(v, 4) / 4
     mag = 10 ** math.floor(math.log10(raw))
-    for m in (1, 2, 5, 10):
+    for m in (1, 1.5, 2, 3, 5, 10):
         if raw <= m * mag:
             return 4 * m * mag
     return 40 * mag
@@ -155,7 +155,7 @@ def render(days, theme, user="t3rminal-cmd"):
     bw = pw / n * 0.62
     vol = "".join(
         f'<rect x="{xs[i] - bw / 2:.1f}" y="{vol_base - a * VOL_H:.1f}" width="{bw:.1f}" '
-        f'height="{a * VOL_H:.1f}" rx="1.5" fill="{PAINT[1] if a >= .6 else t["vol"]}" '
+        f'height="{a * VOL_H:.1f}" rx="1.5" fill="{t["navy"] if a >= .6 else t["vol"]}" '
         f'opacity="{.6 if a >= .6 else 1}"/>'
         for i, (_, _, a) in enumerate(pts_data))
 
@@ -195,8 +195,8 @@ def render(days, theme, user="t3rminal-cmd"):
       <stop offset="0" stop-color="{PAINT[0]}"/><stop offset=".55" stop-color="{PAINT[1]}"/><stop offset="1" stop-color="{PAINT[2]}"/>
     </linearGradient>
     <linearGradient id="ar" x1="0" x2="0" y1="0" y2="1">
-      <stop offset="0" stop-color="{PAINT[1]}" stop-opacity="{.32 if theme == 'dark' else .22}"/>
-      <stop offset="1" stop-color="{PAINT[1]}" stop-opacity="0"/>
+      <stop offset="0" stop-color="{t['navy']}" stop-opacity="{.45 if theme == 'dark' else .25}"/>
+      <stop offset="1" stop-color="{t['navy']}" stop-opacity="0"/>
     </linearGradient>
     <filter id="glow" x="-5%" y="-30%" width="110%" height="160%">
       <feGaussianBlur stdDeviation="4" result="b"/>
@@ -237,8 +237,8 @@ def render(days, theme, user="t3rminal-cmd"):
 
   <!-- ticker header -->
   <g transform="translate({PL},0)">
-    <rect y="22" width="62" height="24" rx="6" fill="url(#ln)"/>
-    <text x="31" y="39" text-anchor="middle" style="font-size:13px;font-weight:800;fill:#0d1117">T3RM</text>
+    <rect y="22" width="62" height="24" rx="6" fill="{t['navy']}"/>
+    <text x="31" y="39" text-anchor="middle" style="font-size:13px;font-weight:800;fill:#ffffff">T3RM</text>
     <text class="nm" x="74" y="39">{html.escape(user)} · contributions / {per} · since {first:%b %-d, %Y}</text>
     <circle class="live" cx="{W - PL - PR - 52}" cy="34" r="4" fill="{t['up']}"/>
     <text class="nm" x="{W - PL - PR - 42}" y="39">LIVE</text>
@@ -260,17 +260,17 @@ def render(days, theme, user="t3rminal-cmd"):
     <path d="{area}" fill="url(#ar)"/>
     <path d="{ma_path}" fill="none" stroke="{t['muted']}" stroke-width="1.4" stroke-dasharray="5 5" opacity=".8"/>
   </g>
-  <path class="line" d="{line}" fill="none" stroke="url(#ln)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" filter="url(#glow)"/>
+  <path class="line" d="{line}" fill="none" stroke="{t['navy']}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" filter="url(#glow)"/>
   {"".join(flags)}
   <g class="end">
-    <line x1="{ex:.1f}" y1="{ey:.1f}" x2="{W - PR + 4}" y2="{tag_y:.1f}" stroke="{PAINT[2]}" stroke-dasharray="2 3"/>
-    <circle class="ping" cx="{ex:.1f}" cy="{ey:.1f}" r="5" fill="{PAINT[2]}"/>
-    <circle cx="{ex:.1f}" cy="{ey:.1f}" r="5" fill="{PAINT[2]}" stroke="{t['bg']}" stroke-width="2"/>
-    <rect x="{W - PR + 4}" y="{tag_y - 11:.1f}" width="44" height="22" rx="5" fill="{PAINT[2]}"/>
+    <line x1="{ex:.1f}" y1="{ey:.1f}" x2="{W - PR + 4}" y2="{tag_y:.1f}" stroke="{t['navy']}" stroke-dasharray="2 3"/>
+    <circle class="ping" cx="{ex:.1f}" cy="{ey:.1f}" r="5" fill="{t['navy']}"/>
+    <circle cx="{ex:.1f}" cy="{ey:.1f}" r="5" fill="{t['navy']}" stroke="{t['bg']}" stroke-width="2"/>
+    <rect x="{W - PR + 4}" y="{tag_y - 11:.1f}" width="44" height="22" rx="5" fill="{t['navy']}"/>
     <text x="{W - PR + 26}" y="{tag_y + 4:.1f}" text-anchor="middle" style="font-size:12px;font-weight:800;fill:#fff">{counts[-1]}</text>
   </g>
   <g transform="translate({W - PR - 268},{PT - 12})">
-    <line x1="0" y1="-4" x2="22" y2="-4" stroke="url(#ln)" stroke-width="3"/><text class="ax" x="28" y="0">{"daily" if daily else "weekly"}</text>
+    <line x1="0" y1="-4" x2="22" y2="-4" stroke="{t['navy']}" stroke-width="3"/><text class="ax" x="28" y="0">{"daily" if daily else "weekly"}</text>
     <line x1="96" y1="-4" x2="118" y2="-4" stroke="{t['muted']}" stroke-width="1.4" stroke-dasharray="5 5"/><text class="ax" x="124" y="0">{"7-day" if daily else "4-wk"} avg</text>
     <circle cx="210" cy="-4" r="4" fill="{t['bg']}" stroke="{PAINT[2]}" stroke-width="2"/><text class="ax" x="220" y="0">peak</text>
   </g>
